@@ -2973,3 +2973,14 @@ external_validation_protocol:
     blocker_reason: "Insufficient disk space: dataset requires 10.51GB (11,288,275,886 bytes), only 10.45GB available on C: drive."
     remaining_steps:
     - resolve_disk_space_blocker
+
+  step6a_metadata_inspection:
+    status: complete
+    created: "2026-07-04"
+    phase: acquisition
+    ancestry_axis_status: usable
+    taskB_labels: proxy
+    donor_counts: 261
+    full_matrix_downloaded: false
+    remaining_steps:
+    - step7_model_development

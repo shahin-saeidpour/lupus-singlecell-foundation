@@ -2928,3 +2928,14 @@ external_validation_protocol:
       Removed the degenerate CLUES vs. ImmVar axis for diagnosis. Confirmed the
       ancestry axis (Asian vs European) as the primary internal-external validation
       axis with case and control presence in both.
+
+  step4_harmonization:
+    status: complete
+    created: "2026-07-04"
+    phase: pre-acquisition
+    data_touched: false
+    code_executed: false
+    criteria_reconciliation: recorded
+    integration_policy: reference_projection
+    remaining_steps:
+    - step5_metrics_and_evaluation_plan

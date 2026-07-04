@@ -190,7 +190,57 @@ assessment is honest; we do not overclaim external validation capability for Tas
 
 ## 3. Harmonization & Labels
 
-TBD (Step 4)
+**CARDINAL RULE:** All harmonization statistics (feature vocabulary, highly variable genes [HVGs], normalization parameters, integration/reference model, cell-type reference, and label thresholds) are **FIT ON DEVELOPMENT DATA ONLY** and applied **FROZEN** to the external cohort. The external cohort is **PROJECTED THROUGH** the frozen pipeline and never participates in fitting any parameter. Any statistic derived even partly from external data constitutes leakage and is a protocol violation.
+
+### 3.1 Feature-space harmonization (gene vocabulary)
+- **Stable Identifier Space:** All genes must be mapped to a single stable identifier space using Ensembl gene IDs.
+- **Reference Annotation:** Gene-symbol to Ensembl reconciliation will use a fixed reference annotation (GENCODE v44 / Ensembl release 110).
+- **Frozen Vocabulary:** The model's input gene vocabulary is FROZEN from the development cohort.
+- **External Mapping:** For the external cohort, genes are intersected onto the frozen vocabulary:
+  - Genes absent in the external cohort but present in the vocabulary are **zero-filled** (or handled per the model's documented missing-gene policy).
+  - Genes present in the external cohort but not in the frozen vocabulary are **DROPPED**.
+- **HVG Selection:** Any selection of highly variable genes (HVGs) is computed on the development set only and never recomputed on the external cohort.
+
+### 3.2 Normalization
+- **Per-cell Normalization:** The standard pipeline is library-size normalization followed by log1p transformation (`log1p(counts / library_size * scale_factor)`).
+- **Parameter Fitting:** These operations are performed per-cell and do not cause leakage. However, any dataset-level parameter (e.g., standardizing variance) must be **dev-fit and frozen**.
+- **Order of Operations:** 1. Filter cells/genes (on external, filter only to frozen vocabulary), 2. Library-size normalize per cell, 3. log1p transform, 4. Apply frozen dataset-level scaling (if applicable).
+
+### 3.3 Integration / batch handling (LEAKAGE-CRITICAL)
+- **Joint Integration Prohibited:** Running joint integration (e.g., Harmony, scVI, Seurat anchor integration) over the pooled development and external datasets is strictly prohibited. This leaks external structure into the embedding.
+- **Reference-Projection Approach:** The model/representation is fit entirely on the development cohort. The external cohort is mapped onto the frozen reference (e.g., using scArches/scVI reference mapping or the model's own frozen encoder) **WITHOUT** updating any parameters.
+- **Within-Development Batch:** Within the development cohort, batch effects (donor/pool/run) are handled during training. The external cohort is treated as a single held-out batch mapped in at test time.
+
+### 3.4 Cell-type annotation
+- If cell-type labels are utilized by the pipeline, they must be derived via **label transfer** from a development-fit reference (frozen).
+- Joint re-clustering of development and external data together is prohibited.
+- *(Note: If no cell-type labels are explicitly used by the downstream prediction head, this step is omitted, but the projection rule remains.)*
+
+### 3.5 Diagnosis label harmonization + classification-criteria reconciliation
+- **Criteria Recorded:**
+  - Perez (Development): 1997 ACR criteria.
+  - Nehar-Belaid (External): Likely 1997 ACR or 2012 SLICC (standard clinical criteria).
+- **Decision Rule:** For the binary case/control task (Task A) on clinically established SLE, samples meeting **ANY** accepted clinical criteria (1997 ACR, 2012 SLICC, or 2019 EULAR/ACR) are assigned a label of `SLE=1`.
+- **Limitation & Sensitivity:** Criteria differences are DOCUMENTED as a study limitation. Where feasible, they will be addressed by a sensitivity analysis rather than by attempting a data transformation. We do not pretend the criteria are perfectly identical.
+- **Exclusions:** Any sample that is not clearly an SLE case or a clearly healthy control (e.g., other autoimmune diseases, undetermined status) is **excluded** from Task A.
+
+### 3.6 Healthy-control definition harmonization
+- **HC Definition:** Healthy Controls (HC) are defined as having no known autoimmune disease.
+- **Age Shift:** The age difference between the adult HC in Perez/ImmVar and the pediatric HC in Nehar-Belaid is documented as part of the external **SHIFT** and is not treated as a defect to correct.
+
+### 3.7 Activity label harmonization (Task B, secondary/exploratory, internal-only)
+- **Primary Target:** Active (SLEDAI-2K > 4) vs. Inactive (SLEDAI-2K ≤ 4).
+- **Label Source (Open Annotation Only):**
+  - **Perez:** If numeric SLEDAI scores are not available in the open metadata, the open `flare` vs. `managed` annotation is mapped as a PROXY (`flare` → active; `managed` → inactive). This is explicitly flagged as a proxy that is not identical to a strict SLEDAI cutoff.
+  - **Other Indices:** Any external or alternative activity index (e.g., BILAG, PGA, SLAM) is deferred or excluded per the Section 1 fallback. No crosswalk will be invented.
+- **Scope Reaffirmation:** Task B remains **internal/exploratory only**. No external activity claim is made.
+
+### 3.8 Per-cohort harmonization worklist
+
+| Cohort | Harmonization Actions Required | Post-download verifications |
+|---|---|---|
+| **Perez (GSE174188)** <br> *(Development)* | - Map gene symbols to GENCODE v44 / Ensembl 110. <br> - Fit vocabulary and HVGs. <br> - Extract `disease_status` for Task A. <br> - Extract `flare`/`managed` proxy for Task B. <br> - Exclude non-SLE/non-HC samples. | **UNKNOWN — resolve at acquisition:** Exact numeric SLEDAI availability in open metadata; exact per-ancestry case/control counts for sub-splits. |
+| **Nehar-Belaid (GSE135779)** <br> *(External)* | - Intersect genes onto frozen development vocabulary. Zero-fill missing genes. <br> - Note chemistry difference (10x 3' non-mux). <br> - Extract SLE/HC labels for Task A. <br> - Exclude non-SLE/non-HC samples. | **UNKNOWN — resolve at acquisition:** Exact clinical classification criteria cited in supplementary; SLEDAI distribution size (active vs inactive subset). |
 
 ## 4. Metrics & Evaluation Plan
 

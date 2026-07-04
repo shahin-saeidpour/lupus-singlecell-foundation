@@ -244,4 +244,47 @@ assessment is honest; we do not overclaim external validation capability for Tas
 
 ## 4. Metrics & Evaluation Plan
 
-TBD (Step 5)
+### 4.1 Prediction unit & aggregation (binding)
+- **Patient-Level Unit:** All primary evaluations are performed at the patient/sample level. No cell-level metric is reported as a primary outcome.
+- **Aggregation:** Cell-level model outputs (e.g., probabilities) are pooled to the sample level prior to metric computation (e.g., taking the mean of per-cell probabilities, or using the model's dedicated sample-level readout/attention head).
+
+### 4.2 Primary metrics — Task A discrimination
+- **Metrics:** Area Under the Receiver Operating Characteristic (AUROC) and Area Under the Precision-Recall Curve (AUPRC). AUPRC is the primary metric of the two, given the inherent case/control imbalance in real-world cohorts.
+- **Evaluation Splits:** Metrics will be reported clearly and separately on:
+  1. Internal-external leave-one-ancestry-out folds within Perez (GSE174188).
+  2. The external cohort (Nehar-Belaid, GSE135779).
+- **Operating Point:** The classification threshold is **SELECTED ON DEVELOPMENT** (e.g., Youden's J statistic computed on the development set), **FROZEN**, and then applied to the external cohort. Sensitivity, specificity, Positive Predictive Value (PPV), and Negative Predictive Value (NPV) will be reported at that frozen threshold.
+
+### 4.3 Calibration (LEAKAGE-SENSITIVE, FIRST-CLASS)
+- **Metrics:** Reliability curve, Expected Calibration Error (ECE), and Brier score.
+- **Reporting:** Calibration metrics are reported **SEPARATELY** for internal, internal-external, and external evaluations.
+- **Calibration Adjustment:** Any post-hoc calibration adjustment (e.g., temperature scaling) is **FIT ON DEVELOPMENT ONLY** and applied frozen. We will report BOTH pre- and post-calibration metrics on the external cohort to make calibration drift under shift explicitly visible. Fitting calibration on the external cohort is strictly prohibited.
+
+### 4.4 Uncertainty & selective prediction (the core contribution)
+- **Uncertainty Measure:** The specific uncertainty measure emitted by the model (e.g., predictive entropy, variance across MC dropout/ensemble, or a dedicated uncertainty head) will be tracked.
+- **Selective Prediction:** Risk-coverage curves and selective accuracy/AUROC at predefined coverages (e.g., 100%, 90%, 75%, 50%) will be reported. The abstention threshold is **SET ON DEVELOPMENT** and frozen for the external cohort.
+- **External Analysis:** We will report the abstention rate on the external cohort and analyze whether abstained cases concentrate in the shifted (e.g., pediatric) population, formally evaluating the model's "knows when it doesn't know" capability.
+
+### 4.5 Out-of-distribution / shift behavior
+- **OOD Signals:** We will report specific OOD signals, such as comparing the uncertainty distribution between the development and external cohorts, and assessing the detection of the pediatric external cohort as a higher-uncertainty population.
+- **Framing:** The external cohort constitutes a covariate/population shift, not an adversarial out-of-distribution set. This will be framed honestly.
+
+### 4.6 Task B (secondary/exploratory, internal-only) metrics
+- **Metrics:** AUROC/AUPRC for active vs. inactive classification.
+- **Evaluation Split:** Evaluated on **Perez internal splits only**, using the flare/managed PROXY labels (explicitly labeled as proxy).
+- **Optional Metrics:** SLEDAI regression metrics (Spearman correlation, Mean Absolute Error [MAE]) will be computed **ONLY** if numeric SLEDAI is openly available (UNKNOWN — resolve at acquisition).
+- **External Claim:** No external claim is made for Task B.
+
+### 4.7 Uncertainty quantification of the estimates (statistics)
+- **Patient-Level Bootstrap:** All primary metrics will be reported with 95% Confidence Intervals (CIs) calculated via patient-level bootstrap (resampling patients, not cells).
+- **Parameters:** `n_bootstrap = 1000`; seed fixed (e.g., `seed = 42`).
+- **Internal-External Aggregation:** For internal-external ancestry folds, metrics will be reported as the per-fold mean +/- spread across the folds.
+
+### 4.8 Subgroup / stratified reporting
+- **Strata:** Primary metrics will be reported stratified by ancestry, sex, and pediatric vs. adult (for the external cohort), where sample size allows.
+- **Minimum-N Rule:** If a stratum contains fewer than 10 cases or controls, it will be reported as "n too small" rather than reporting an unstable point estimate.
+
+### 4.9 Pre-registration & single-use commitments (binding)
+- **Single-Use External Cohort:** The external cohort is evaluated **ONCE**, only after the model, pipeline, thresholds, and calibration parameters are fully frozen. No metric, threshold, or hyperparameter will be tuned on the external data.
+- **Fixed Metric List:** This metric list is **FIXED** as of this protocol version. Any additional metrics added post-hoc will be explicitly labeled as exploratory/post-hoc in the final manuscript.
+- **Reporting Standard:** The final write-up will be completed in accordance with the TRIPOD+AI reporting checklist.

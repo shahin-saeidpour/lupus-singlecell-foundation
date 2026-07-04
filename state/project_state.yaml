@@ -2939,3 +2939,17 @@ external_validation_protocol:
     integration_policy: reference_projection
     remaining_steps:
     - step5_metrics_and_evaluation_plan
+
+  step5_metrics:
+    status: complete
+    created: "2026-07-04"
+    phase: pre-acquisition
+    data_touched: false
+    code_executed: false
+    external_single_use: committed
+    primary_task: diagnosis
+    uncertainty_metrics: registered
+    design_complete: true
+    gate1_ready: true
+    remaining_steps:
+    - human_gate_1_review

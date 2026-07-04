@@ -2910,3 +2910,21 @@ external_validation_protocol:
     remaining_steps:
     - step4_harmonization_and_labels
     - step5_metrics_and_evaluation_plan
+
+  step3b_corrections:
+    status: complete
+    created: "2026-07-04"
+    phase: pre-acquisition
+    sleca_sources_resolved: true
+    second_external_found: false
+    cluesimmvar_axis_removed: true
+    data_touched: false
+    code_executed: false
+    description: >
+      Resolved remaining 2 SLECA source studies (GSE250024 and GSE158055), confirming
+      neither is a viable second external cohort (too small or no SLE cases). The
+      single-external design (GSE135779) stands. Verified Perez case/control
+      composition by source, revealing ImmVar is exclusively healthy controls.
+      Removed the degenerate CLUES vs. ImmVar axis for diagnosis. Confirmed the
+      ancestry axis (Asian vs European) as the primary internal-external validation
+      axis with case and control presence in both.

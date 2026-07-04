@@ -128,11 +128,11 @@ defined to provide additional supported-generalization evidence:
 
 | Sub-split name | Held-out partition | Shift axis | Purpose |
 |---|---|---|---|
-| CLUES vs. ImmVar leave-one-source-out | Hold out ImmVar samples; train on CLUES (or vice versa) | Source cohort / recruitment site | Tests generalization across recruitment sites within the same study |
 | Ancestry-stratified hold-out | Hold out one ancestry group (e.g., East Asian); train on remaining | Ancestry / genetic background | Tests robustness to population structure |
 
-These internal-external sub-analyses are **supplementary** to the primary
-GSE135779 external validation and do not replace it.
+*(Note: A "CLUES vs. ImmVar" leave-one-source-out axis was originally considered but removed. The ImmVar cohort was used in the primary study exclusively as a source of healthy controls, making a source-split degenerate for evaluating diagnosis generalization, as the hold-out would contain no SLE cases.)*
+
+**Constraint on Internal-External Validation:** The ancestry sub-split must be patient-disjoint. The exact per-ancestry case and control counts must be verified post-download, but both Asian and European ancestries are confirmed to contain both cases and controls. These sub-analyses are **supplementary** to the primary GSE135779 external validation and do not replace it.
 
 ---
 

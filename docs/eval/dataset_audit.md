@@ -103,8 +103,10 @@ Per bioRxiv preprint and search results:
 - Data-4: **GSE162577** — SLE PBMC ✅
 - Data-5: **GSE186476** — lupus **skin biopsies** (CLE lesional/non-lesional) ⚠️ OUT OF SCOPE
 - Data-6: **GSE174188** (Perez et al. 2022) — SLE PBMC ✅
-- Data-7: UNKNOWN — check preprint supplementary table
-- Data-8: UNKNOWN — check preprint supplementary table
+- Data-7: **GSE250024** — SLE PBMC, but only 3 patients total ❌ TOO SMALL
+- Data-8: **GSE158055** (Ren et al. 2021) — COVID-19 dataset with healthy controls; used in SLECA for controls only, 0 SLE cases ❌ NO CASES
+
+**Candidate Second External Assessment:** Neither of the remaining source studies qualifies as a candidate second external cohort. Both are either too small (n=3) or lack disease cases entirely (healthy controls only). Therefore, no new candidate is added to the audit table, and the **single-external design (GSE135779 only) stands.**
 
 **Critical overlap:** SLECA integrates BOTH GSE174188 (our development anchor) AND
 GSE135779 (our primary external candidate). Any use of SLECA for validation would

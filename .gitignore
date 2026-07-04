@@ -30,3 +30,9 @@ local_artifacts/
 *.pkl
 *.pickle
 *.joblib
+# Exceptions: allow the small result files to be uploaded
+!artifacts/step9_external/
+!artifacts/step9_external/ext_predictions.csv
+!artifacts/step8_metrics/
+!artifacts/step8_metrics/*.json
+!artifacts/step8_metrics/*.csv

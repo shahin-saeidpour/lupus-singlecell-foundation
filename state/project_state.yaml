@@ -2984,3 +2984,16 @@ external_validation_protocol:
     full_matrix_downloaded: false
     remaining_steps:
     - step7_model_development
+
+  step6b_acquisition:
+    status: complete
+    created: "2026-07-04"
+    phase: acquisition
+    dev_acquired: true
+    byte_size: 11288275886
+    sha256: "f5ce47630a8e4f5598b09d202dfcf8a9883b327005eff581637c83a1e1237226"
+    census_snapshot_date: "2023-12-15"
+    consistency_with_6a: pass
+    external_acquired: false
+    remaining_steps:
+    - step7_model_development

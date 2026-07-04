@@ -2831,3 +2831,24 @@ stage6_final_result_report_closeout:
   - write report artifact
   - perform external validation
   - add real-cohort performance claims
+
+external_validation_protocol:
+  step1_evaluation_targets:
+    status: complete
+    created: "2026-07-04"
+    file: docs/eval/external_validation_protocol.md
+    phase: pre-acquisition
+    data_touched: false
+    datasets_named: false
+    code_executed: false
+    description: >
+      Defined two evaluation targets (Task A: SLE diagnosis; Task B: disease
+      activity) with case definitions, output types, and cross-cutting rules.
+      No data was downloaded, no cohort was selected, and no code was run.
+    tasks_defined:
+    - task_a_diagnosis_sle_vs_healthy
+    - task_b_disease_activity_active_vs_inactive
+    remaining_steps:
+    - step3_cohort_assignment
+    - step4_harmonization_and_labels
+    - step5_metrics_and_evaluation_plan

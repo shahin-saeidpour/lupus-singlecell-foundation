@@ -1,0 +1,12 @@
+field,value
+stage,8H
+status,blocked_stage8g_inputs_missing
+stage8g_ready,false
+canonical_rerun,not_run
+matched_comparison,not_run
+baseline_package,missing
+new_metrics,not_created
+new_intervals,not_created
+external_scoring,not_run
+issue_57,remain_open
+next_stage,8I_blocked_manuscript_readiness_closeout

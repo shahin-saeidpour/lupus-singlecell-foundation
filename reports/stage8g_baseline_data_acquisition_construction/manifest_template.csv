@@ -1,0 +1,10 @@
+artifact_path,artifact_role,required,sha256,bytes,created_at_utc,source_stage,status
+artifacts/stage8g/baseline_inputs/pseudobulk_matrix.csv.gz,primary_baseline_input,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/labels.csv,label_table,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/fold_assignments.csv,fold_assignment_table,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/donor_inventory.csv,donor_inventory,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/preprocessing_config.yaml,configuration,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/file_hashes.csv,input_hash_manifest,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/environment.json,environment_manifest,true,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/cell_type_proportions.csv,secondary_baseline_input,false,TODO,TODO,TODO,8G,missing
+artifacts/stage8g/baseline_inputs/selected_feature_matrix.csv,optional_sensitivity_input,false,TODO,TODO,TODO,8G,missing

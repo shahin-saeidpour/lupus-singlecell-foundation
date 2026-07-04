@@ -1,0 +1,31 @@
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Python packaging/build artifacts
+*.egg-info/
+build/
+dist/
+
+# Local data, embeddings, and model artifacts
+data/
+artifacts/
+outputs/
+local_artifacts/
+*.h5ad
+*.h5
+*.loom
+*.zarr/
+*.parquet
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.pkl
+*.pickle
+*.joblib

@@ -1,0 +1,11 @@
+field,value
+stage,9C
+status,blocked_stage9b_inputs_missing
+stage9b_ready,false
+pseudobulk_matrix,not_constructed
+baseline_inputs,missing
+numeric_execution,not_run
+predictions,not_created
+scores,not_created
+stage9d_ready,false
+next_stage,9D_blocked_handoff_closeout

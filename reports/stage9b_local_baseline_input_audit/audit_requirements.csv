@@ -1,0 +1,11 @@
+requirement_id,check_name,required,current_status,blocking,next_action
+S9B_REQ_001,local_source_registry_exists,true,missing,true,Create artifacts/stage9a/local_source_registry.csv from template and fill real paths.
+S9B_REQ_002,source_expression_artifact_or_pseudobulk_exists,true,missing,true,Place real source artifact outside Git or place pseudobulk_matrix.csv.gz under artifacts/stage8g/baseline_inputs.
+S9B_REQ_003,labels_csv_exists,true,missing,true,Place labels.csv under artifacts/stage8g/baseline_inputs.
+S9B_REQ_004,fold_assignments_csv_exists,true,missing,true,Place fold_assignments.csv under artifacts/stage8g/baseline_inputs.
+S9B_REQ_005,donor_inventory_csv_exists,true,missing,true,Place donor_inventory.csv under artifacts/stage8g/baseline_inputs.
+S9B_REQ_006,preprocessing_config_exists,true,missing,true,Place preprocessing_config.yaml under artifacts/stage8g/baseline_inputs.
+S9B_REQ_007,file_hashes_exists,true,missing,true,Generate file_hashes.csv after local placement.
+S9B_REQ_008,environment_manifest_exists,true,missing,true,Generate environment.json after local placement.
+S9B_REQ_009,numeric_execution_not_performed,true,passed,false,Keep Stage 9B audit-only.
+S9B_REQ_010,issue57_remains_open,true,passed,false,Do not close external scoring issue.

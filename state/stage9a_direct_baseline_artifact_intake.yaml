@@ -1,0 +1,15 @@
+stage: 9A
+name: direct baseline artifact intake
+status: artifact_intake_protocol_defined_awaiting_local_files
+baseline_construction: not_run
+numeric_execution: not_run
+predictions: not_created
+metrics: not_created
+external_scoring: not_run
+issue_57: remain_open
+stage9b_ready: false
+next_stage: 9B_after_local_file_placement
+notes:
+  - Stage 9A defines local artifact placement and registry audit protocol.
+  - Large source files must remain outside Git tracking.
+  - Stage 9B should start only after local files are placed or registered.

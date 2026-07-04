@@ -1,0 +1,19 @@
+artifact,column,required,type,description
+pseudobulk_matrix.csv.gz,donor_id,true,string,Unique donor identifier.
+pseudobulk_matrix.csv.gz,gene_columns,true,numeric,Expression feature columns.
+labels.csv,donor_id,true,string,Unique donor identifier.
+labels.csv,label,true,string,Approved binary label: managed or FLARE.
+labels.csv,label_source,true,string,Label provenance.
+fold_assignments.csv,donor_id,true,string,Unique donor identifier.
+fold_assignments.csv,split_id,true,string,Split identifier.
+fold_assignments.csv,fold_id,true,string,Fold identifier.
+fold_assignments.csv,seed,true,integer,Seed value.
+fold_assignments.csv,role,true,string,Partition role.
+donor_inventory.csv,donor_id,true,string,Unique donor identifier.
+donor_inventory.csv,label,true,string,Approved binary label.
+donor_inventory.csv,source_package,true,string,Artifact source.
+donor_inventory.csv,inclusion_status,true,string,Inclusion status.
+file_hashes.csv,path,true,string,Relative artifact path.
+file_hashes.csv,sha256,true,string,SHA256 digest.
+file_hashes.csv,bytes,true,integer,Artifact size in bytes.
+file_hashes.csv,generated_at_utc,true,string,UTC timestamp.

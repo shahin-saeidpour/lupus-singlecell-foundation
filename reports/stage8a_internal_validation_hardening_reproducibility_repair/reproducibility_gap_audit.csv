@@ -1,0 +1,10 @@
+gap,status,manuscript_risk,required_repair
+raw_donor_embedding_files,not_committed,high,archive externally with SHA256 or provide deterministic regeneration script
+row_level_prediction_table,missing,high,create CSV with donor_id y_true y_score fold repeat seed model_id
+canonical_cv_protocol,missing,high,select one repeated donor-level CV protocol and regenerate final metrics
+per_fold_class_counts,missing,medium,record FLARE and managed counts for every fold
+fold_stability_report,partial,medium,report mean std CI and per-fold values for all key metrics
+external_artifact_manifest,missing,high,record zip path file list hashes and creation command
+baseline_raw_or_pseudobulk,missing,high,run direct baseline on raw or pseudobulk features
+threshold_policy,unclear,medium,record whether thresholded metrics use frozen internal threshold or are exploratory
+claim_language,needs_guardrail,medium,avoid overclaiming with small positive donor count

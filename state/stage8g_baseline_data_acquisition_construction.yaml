@@ -1,0 +1,20 @@
+stage: 8G
+name: baseline data acquisition / construction
+status: required_real_baseline_inputs_missing_construction_blocked
+construction: not_run
+primary_baseline_input: missing
+pseudobulk_matrix: missing
+label_table: missing
+fold_assignments: missing
+artifact_hashes: missing
+baseline_predictions: not_created
+baseline_metrics: not_computed
+canonical_rerun: blocked
+stage8h_ready: false
+external_scoring: not_run
+issue_57: remain_open
+next_stage: 8G_input_placement_or_construction_required_before_8H
+notes:
+  - Stage 8G package scaffolds acquisition and construction requirements.
+  - Real donor-level baseline input artifacts are not present in the repository.
+  - Stage 8H must not start until the Stage 8G input package exists and passes audit.

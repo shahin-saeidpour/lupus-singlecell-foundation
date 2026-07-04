@@ -1,0 +1,11 @@
+artifact_role,path,required,status,notes
+baseline_input_directory,artifacts/stage8g/baseline_inputs/,true,missing,"Directory for the real Stage 8G baseline input package."
+pseudobulk_matrix,artifacts/stage8g/baseline_inputs/pseudobulk_matrix.csv.gz,true,missing,"Primary donor x gene baseline input. One row per donor."
+label_table,artifacts/stage8g/baseline_inputs/labels.csv,true,missing,"Approved binary target labels aligned to donor_id."
+fold_assignments,artifacts/stage8g/baseline_inputs/fold_assignments.csv,true,missing,"Same split and fold policy as primary evaluation."
+donor_inventory,artifacts/stage8g/baseline_inputs/donor_inventory.csv,true,missing,"Included and excluded donor inventory with label and provenance."
+preprocessing_config,artifacts/stage8g/baseline_inputs/preprocessing_config.yaml,true,missing,"Fold-local PCA and balanced logistic regression config."
+file_hashes,artifacts/stage8g/baseline_inputs/file_hashes.csv,true,missing,"SHA256 manifest for all Stage 8G input artifacts."
+environment,artifacts/stage8g/baseline_inputs/environment.json,true,missing,"Construction environment metadata."
+cell_type_proportions,artifacts/stage8g/baseline_inputs/cell_type_proportions.csv,false,missing,"Secondary composition-control baseline input."
+selected_feature_matrix,artifacts/stage8g/baseline_inputs/selected_feature_matrix.csv,false,missing,"Optional sensitivity baseline input only under Stage 8F rules."

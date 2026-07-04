@@ -1,0 +1,7 @@
+claim_id,claim_text,status,reason
+S8I_BLOCK_001,Geneformer outperforms the direct pseudobulk baseline,prohibited,Direct baseline was not constructed or executed.
+S8I_BLOCK_002,The canonical matched rerun is complete,prohibited,Stage 8H was blocked.
+S8I_BLOCK_003,The method is externally validated,prohibited,External scoring was not run.
+S8I_BLOCK_004,The project is ready for strong Q1 clinical claims,prohibited,Direct baseline and external scoring remain missing.
+S8I_BLOCK_005,The model is a final clinical predictor,prohibited,Current evidence is internal and incomplete.
+S8I_BLOCK_006,Any new metric or interval from Stage 8H,prohibited,No Stage 8H numerical execution occurred.

@@ -1,0 +1,14 @@
+status: single_final_task_active
+stage_loop: stopped
+current_blocker: missing_real_local_baseline_artifact
+only_remaining_task: place_or_register_real_feature_extraction_artifact_then_run_final_completion_gate
+final_command: python scripts/final_complete_project_once_inputs_exist.py
+current_scientific_completion: incomplete_until_real_baseline_artifacts_are_present
+forbidden_next_actions:
+  - create_more_blocked_stages_for_same_missing_input
+  - claim_project_complete_without_real_baseline_artifacts
+  - invent_metrics_or_predictions
+notes:
+  - This state stops the Stage 9D loop.
+  - All remaining work is consolidated into one final task.
+  - The real local artifact is still required before scientific completion.

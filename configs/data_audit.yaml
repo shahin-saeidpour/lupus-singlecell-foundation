@@ -1,0 +1,113 @@
+search_terms:
+  - "systemic lupus erythematosus single-cell RNA-seq"
+  - "SLE single-cell transcriptomics"
+  - "lupus single-cell RNA sequencing"
+  - "lupus nephritis single-cell RNA-seq"
+  - "lupus nephritis single-nucleus RNA-seq"
+  - "SLE PBMC single-cell RNA-seq"
+  - "lupus kidney single-cell transcriptomics"
+
+sources_to_audit:
+  - "GEO / NCBI"
+  - "CELLxGENE Census"
+  - "Human Cell Atlas"
+  - "published AnnData / Seurat repositories"
+
+geo_ncbi:
+  search_terms:
+    - "systemic lupus erythematosus single cell RNA sequencing"
+    - "SLE scRNA-seq"
+    - "lupus nephritis single cell RNA-seq"
+    - "autoimmune lupus single-cell transcriptomics"
+    - "PBMC lupus single cell"
+    - "kidney lupus nephritis single cell"
+  metadata_only: true
+  allow_full_download: false
+  required_manual_verification:
+    - "organism"
+    - "assay_type"
+    - "tissue"
+    - "disease_label"
+    - "patient_id_availability"
+    - "activity_label_availability"
+    - "treatment_metadata"
+    - "batch_or_cohort"
+    - "raw_data_availability"
+    - "processed_object_availability"
+
+cellxgene:
+  metadata_only: true
+  allow_full_download: false
+  query_terms:
+    - "lupus"
+    - "systemic lupus erythematosus"
+    - "SLE"
+    - "lupus nephritis"
+    - "autoimmune"
+    - "PBMC"
+    - "kidney"
+  required_manual_verification:
+    - "collection_id"
+    - "dataset_id"
+    - "organism"
+    - "tissue"
+    - "assay"
+    - "disease"
+    - "donor_id_availability"
+    - "sample_id_availability"
+    - "cell_type_labels"
+    - "raw_count_availability"
+    - "processed_object_availability"
+    - "publication_or_source"
+
+required_fields:
+  - "dataset_id"
+  - "source_name"
+  - "source_url"
+  - "accession"
+  - "organism"
+  - "disease_context"
+  - "case_definition"
+  - "control_definition"
+  - "tissue_or_sample_type"
+  - "assay_type"
+  - "platform"
+  - "donor_count"
+  - "sample_count"
+  - "cell_count"
+  - "raw_data_available"
+  - "processed_data_available"
+  - "clinical_metadata_available"
+  - "treatment_metadata_available"
+  - "disease_activity_metadata_available"
+  - "batch_metadata_available"
+  - "cell_type_annotations_available"
+  - "license_or_access_terms"
+  - "download_status"
+  - "feasibility_status"
+  - "feasibility_notes"
+  - "provenance_notes"
+  - "last_verified"
+
+eligibility_scoring_fields:
+  - "single_cell_or_single_nucleus_evidence"
+  - "sle_or_lupus_nephritis_relevance"
+  - "human_sample_relevance"
+  - "patient_level_metadata_completeness"
+  - "disease_activity_label_quality"
+  - "case_control_definition_quality"
+  - "raw_data_availability"
+  - "processed_data_availability"
+  - "external_validation_potential"
+  - "access_terms_compatibility"
+  - "batch_and_donor_metadata_quality"
+
+eligibility_scoring_schema:
+  - "metadata/dataset_eligibility_scoring.yaml"
+
+forbidden_actions:
+  - "invent_accessions"
+  - "assume_patient_ids"
+  - "treat_bulk_as_single_cell"
+  - "download_full_data_before_approval"
+  - "start_modeling_before_human_gate_1"

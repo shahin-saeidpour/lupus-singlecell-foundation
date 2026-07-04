@@ -1,0 +1,13 @@
+item_id,check_item,required,status,stop_if_failed
+S8G_CHECK_001,source expression input available,true,failed,true
+S8G_CHECK_002,pseudobulk matrix exists,true,failed,true
+S8G_CHECK_003,label table exists,true,failed,true
+S8G_CHECK_004,fold assignment table exists,true,failed,true
+S8G_CHECK_005,donor IDs match primary evaluation,true,not_tested,true
+S8G_CHECK_006,labels match approved binary target,true,not_tested,true
+S8G_CHECK_007,fold IDs and seeds match primary evaluation,true,not_tested,true
+S8G_CHECK_008,file hashes exist,true,failed,true
+S8G_CHECK_009,environment manifest exists,true,failed,true
+S8G_CHECK_010,no predictions generated in Stage 8G,true,passed,true
+S8G_CHECK_011,no metrics computed in Stage 8G,true,passed,true
+S8G_CHECK_012,Issue 57 remains open,true,passed,true

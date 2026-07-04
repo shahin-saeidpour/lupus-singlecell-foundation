@@ -1,0 +1,16 @@
+stage: 8F
+name: baseline construction plan and execution scaffold
+status: baseline_construction_scaffold_complete_execution_not_run
+primary_baseline: donor_level_pseudobulk_pca_balanced_logistic_regression
+secondary_baseline: donor_level_cell_type_proportion_balanced_logistic_regression
+optional_sensitivity_baseline: selected_feature_expression_balanced_logistic_regression
+baseline_input_status: missing_pending_stage8g
+canonical_rerun: not_run
+external_scoring: not_run
+issue_57: remain_open
+next_stage: 8G
+notes:
+  - Stage 8F defines the direct baseline plan and schemas only.
+  - No numerical baseline execution was performed.
+  - No metric was created or modified.
+  - Stage 8H remains blocked until Stage 8G supplies real matched baseline inputs.

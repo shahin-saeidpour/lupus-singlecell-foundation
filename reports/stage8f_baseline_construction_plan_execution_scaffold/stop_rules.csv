@@ -1,0 +1,13 @@
+rule_id,rule_name,stage_trigger,decision,status_if_triggered
+S8F_STOP_001,missing_pseudobulk_matrix,Stage 8G input validation,"Stop before baseline execution. Do not compute predictions or metrics.",required
+S8F_STOP_002,missing_label_table,Stage 8G input validation,"Stop before baseline execution. Labels are required for matched donor-level comparison.",required
+S8F_STOP_003,missing_fold_assignments,Stage 8G input validation,"Stop before baseline execution. Same folds as primary evaluation are mandatory.",required
+S8F_STOP_004,donor_id_mismatch,Stage 8G input validation,"Stop before baseline execution. Donor IDs must match across inputs.",required
+S8F_STOP_005,label_mismatch,Stage 8G input validation,"Stop before baseline execution. Labels must match the approved binary target and primary donor universe.",required
+S8F_STOP_006,fold_policy_mismatch,Stage 8G input validation,"Stop before baseline execution. Split IDs, fold IDs, and seeds must match the primary evaluation policy.",required
+S8F_STOP_007,missing_class_in_training_fold,Stage 8H execution,"Stop for the affected execution. Balanced logistic regression requires both classes in training donors.",required
+S8F_STOP_008,global_preprocessing_detected,Stage 8H execution,"Stop execution. Any learned preprocessing must be fold-local.",required
+S8F_STOP_009,row_predictions_missing,Stage 8H metric gate,"Stop metric computation. Metrics require row-level out-of-fold predictions.",required
+S8F_STOP_010,artifact_hashes_missing,Stage 8G or Stage 8H manifest gate,"Stop closeout. Artifact hashes are required for reproducibility.",required
+S8F_STOP_011,external_scoring_requested,Stage 8F to Stage 8H,"Stop and defer. External scoring is outside Stage 8F internal hardening scope and Issue #57 remains open.",required
+S8F_STOP_012,metric_or_claim_without_execution,Any stage,"Stop closeout. No metric or performance claim may be recorded without real matched execution artifacts.",required

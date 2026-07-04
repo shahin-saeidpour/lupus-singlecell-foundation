@@ -1,0 +1,9 @@
+output_file,status,required_for
+artifacts/stage8c/results/fold_assignments.csv,not_generated,split audit
+artifacts/stage8c/results/primary_row_predictions.csv,not_generated,metric audit
+artifacts/stage8c/results/baseline_row_predictions.csv,not_generated,baseline audit
+artifacts/stage8c/results/primary_metrics.csv,not_generated,final table
+artifacts/stage8c/results/baseline_metrics.csv,not_generated,final table
+artifacts/stage8c/results/stability_report.csv,not_generated,fold stability
+artifacts/stage8c/manifests/execution_log.txt,not_generated,reproducibility
+artifacts/stage8c/manifests/result_hashes.csv,not_generated,reproducibility

@@ -1,0 +1,10 @@
+required_output,status,description
+canonical_metrics_table,not_generated,Final metrics from one canonical donor-level repeated stratified CV protocol
+row_level_predictions,not_generated,CSV with donor_id true label score fold repeat seed and model_id
+fold_assignment_table,not_generated,CSV recording donors in each train test split per fold and repeat
+per_fold_stability_table,not_generated,Fold-level ROC-AUC AUPRC balanced accuracy sensitivity specificity and class counts
+baseline_metrics_table,not_generated,Raw or pseudobulk baseline metrics on same donor splits
+baseline_row_level_predictions,not_generated,Baseline prediction rows aligned to canonical splits
+artifact_manifest,not_generated,File hashes sizes paths commands and source commit
+execution_log,not_generated,Commands environment and timestamps
+manuscript_ready_summary,not_generated,Claim-safe summary after real execution

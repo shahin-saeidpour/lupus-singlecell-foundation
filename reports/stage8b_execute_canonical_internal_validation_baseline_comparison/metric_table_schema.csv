@@ -1,0 +1,20 @@
+column,required,description
+model_id,yes,Model identifier such as geneformer_mean_pca20_logreg or pseudobulk_pca_logreg
+model_family,yes,Geneformer embedding baseline pseudobulk dummy or artifact_proxy
+protocol_id,yes,Canonical validation protocol identifier
+n_repeats,yes,Number of CV repeats
+n_folds,yes,Number of folds per repeat
+n_positive,yes,Number of FLARE donors
+n_negative,yes,Number of managed SLE donors
+roc_auc_mean,yes,Mean ROC-AUC over folds or pooled canonical estimate
+roc_auc_std,yes,Standard deviation of ROC-AUC
+auprc_mean,yes,Mean AUPRC
+auprc_std,yes,Standard deviation of AUPRC
+balanced_accuracy_mean,no,Mean balanced accuracy if threshold policy exists
+balanced_accuracy_std,no,Standard deviation of balanced accuracy
+sensitivity_mean,no,Mean sensitivity if threshold policy exists
+specificity_mean,no,Mean specificity if threshold policy exists
+ci_method,yes,Bootstrap or fold-based confidence interval method
+ci_low,yes,Lower confidence interval for primary metric
+ci_high,yes,Upper confidence interval for primary metric
+notes,no,Claim caveats or execution notes

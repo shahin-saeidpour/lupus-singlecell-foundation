@@ -1,0 +1,1066 @@
+phase_1_scaffold:
+  status: complete
+  completed_through: P1-F014
+  human_gate_1: approved_with_restrictions
+
+phase_2_scaffold:
+  status: complete
+  completed_through: P2-F011
+  restrictions:
+    - "No modeling."
+    - "No downloads without explicit feature approval."
+    - "No cell-level splits."
+    - "Pipeline scaffold only."
+
+phase_3_scaffold:
+  status: verification_in_progress
+  completed_through: P3-F019
+  restrictions:
+    - "Baseline design scaffold only."
+    - "No training or real model fitting."
+    - "No model implementation or training."
+    - "Patient- or donor-level splits only."
+    - "External validation remains TODO."
+
+backlog:
+  - id: P0-001
+    title: "Create master specification"
+    phase: 0
+    status: done
+    type: documentation
+    acceptance_criteria:
+      - "docs/00_master_spec.md exists."
+      - "The spec states that dataset feasibility audit is the first real scientific phase."
+      - "The spec blocks model training before dataset feasibility approval."
+      - "The spec includes human gates and judge rubrics."
+
+  - id: P0-002
+    title: "Create scientific hypothesis placeholder"
+    phase: 0
+    status: done
+    type: documentation
+    acceptance_criteria:
+      - "docs/01_scientific_hypothesis.md exists."
+      - "Unknown dataset facts are marked TODO."
+      - "The hypothesis is explicitly marked as a draft placeholder."
+      - "No dataset accessions are invented."
+
+  - id: P0-003
+    title: "Create project state files"
+    phase: 0
+    status: done
+    type: state
+    acceptance_criteria:
+      - "state/project_state.yaml exists."
+      - "state/current_feature.md exists."
+      - "Modeling is marked as not allowed."
+      - "Dataset downloads are marked as not allowed."
+
+  - id: P0-004
+    title: "Create dataset catalog schema"
+    phase: 0
+    status: done
+    type: metadata
+    acceptance_criteria:
+      - "metadata/dataset_catalog.csv exists."
+      - "The catalog contains only schema headers and TODO placeholder values."
+      - "The catalog does not contain invented dataset accessions."
+
+  - id: P0-005
+    title: "Add metadata schema test"
+    phase: 0
+    status: done
+    type: test
+    acceptance_criteria:
+      - "tests/test_metadata_schema.py exists."
+      - "The test validates required dataset catalog columns."
+      - "The test can run without network access."
+
+  - id: P0-006
+    title: "Run Phase 0 scaffold verification"
+    phase: 0
+    status: done
+    type: verification
+    acceptance_criteria:
+      - "Metadata schema test passes locally."
+      - "All required files are present."
+      - "No model implementation files are added."
+      - "No dataset files are downloaded."
+
+  - id: P1-F001
+    title: "Dataset Search Strategy"
+    phase: 1
+    status: done
+    type: scientific
+    acceptance_criteria:
+      - "docs/02_dataset_feasibility_audit.md exists."
+      - "configs/data_audit.yaml exists."
+      - "scripts/00_audit_datasets.py exists."
+      - "reports/tables/ exists."
+      - "Tests for config and audit safety exist."
+      - "No datasets are downloaded."
+      - "No accessions are recorded unless verified from authoritative sources."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F002
+    title: "GEO / NCBI metadata audit plan"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for data acquisition"
+    acceptance_criteria:
+      - "GEO / NCBI audit protocol is documented."
+      - "GEO search terms are documented in configs/data_audit.yaml."
+      - "metadata/geo_candidate_schema.yaml exists."
+      - "reports/tables/geo_candidate_datasets.csv exists with headers only."
+      - "scripts/01_geo_metadata_search_plan.py exists."
+      - "Tests for GEO schema and search plan safety exist."
+      - "No full datasets are downloaded."
+      - "No dataset accessions are invented."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F003
+    title: "CELLxGENE feasibility query plan"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for data acquisition"
+    acceptance_criteria:
+      - "CELLxGENE protocol is documented."
+      - "CELLxGENE query terms are documented in configs/data_audit.yaml."
+      - "metadata/cellxgene_candidate_schema.yaml exists."
+      - "reports/tables/cellxgene_candidate_datasets.csv exists with headers only."
+      - "scripts/02_cellxgene_metadata_plan.py exists."
+      - "Tests for CELLxGENE schema and metadata plan safety exist."
+      - "No full datasets are downloaded."
+      - "No dataset accessions are invented."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F004
+    title: "Dataset eligibility scoring schema"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for data acquisition"
+    acceptance_criteria:
+      - "Dataset eligibility scoring framework is documented."
+      - "metadata/dataset_eligibility_scoring.yaml exists."
+      - "Total score is 100."
+      - "Eligibility categories are defined."
+      - "Hard rejection rules are explicit."
+      - "scripts/03_score_dataset_eligibility.py exists."
+      - "reports/tables/dataset_eligibility_scores.csv exists with headers only."
+      - "Tests for scoring schema and safe scoring script exist."
+      - "No unaudited candidates are scored as eligible."
+      - "No full datasets are downloaded."
+      - "No dataset accessions are invented."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F005
+    title: "Patient-level metadata audit schema"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for data acquisition"
+    acceptance_criteria:
+      - "Patient metadata framework is documented."
+      - "metadata/patient_metadata_schema.yaml exists."
+      - "reports/tables/patient_metadata_audit.csv exists with headers only."
+      - "scripts/04_patient_metadata_audit.py exists."
+      - "Tests for patient metadata schema and audit safety exist."
+      - "No dataset rows are created."
+      - "No patient IDs or labels are invented."
+      - "No model code is created."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F006
+    title: "Label availability audit schema"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for task selection and data acquisition"
+    acceptance_criteria:
+      - "Label audit framework is documented."
+      - "metadata/label_dictionary.yaml exists."
+      - "metadata/label_availability_schema.yaml exists."
+      - "reports/tables/label_availability_audit.csv exists with headers only."
+      - "scripts/05_label_availability_audit.py exists."
+      - "Tests for label dictionary, schema, and audit safety exist."
+      - "No dataset rows are created."
+      - "No labels are invented."
+      - "No model code is created."
+      - "Human Gate 1 remains PENDING."
+      - "primary_task remains TODO."
+
+  - id: P1-F007
+    title: "External validation candidate criteria"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "Human Gate 1 remains PENDING for external validation approval"
+    acceptance_criteria:
+      - "External validation criteria are documented."
+      - "metadata/external_validation_criteria.yaml exists."
+      - "reports/tables/external_validation_candidates.csv exists with headers only."
+      - "scripts/06_external_validation_audit.py exists."
+      - "Tests for external validation criteria and audit safety exist."
+      - "No dataset rows are created."
+      - "No external validation cohort is approved."
+      - "No cohort labels or metadata are invented."
+      - "No model code is created."
+      - "Human Gate 1 remains PENDING."
+      - "external_validation_cohort remains TODO."
+
+  - id: P1-F008
+    title: "Dataset feasibility report template"
+    phase: 1
+    status: done
+    type: documentation
+    blocked_by:
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "Dataset feasibility report template exists."
+      - "Rejected dataset log exists with headers only."
+      - "Safe report generator scaffold exists."
+      - "Tests for report template, rejected log, and generator exist."
+      - "No dataset rows are created."
+      - "No dataset is approved."
+      - "Human Gate 1 remains PENDING."
+      - "external_validation_cohort remains TODO."
+      - "selected_datasets remains empty."
+
+  - id: P1-F009
+    title: "Real GEO / HCA / CELLxGENE candidate discovery, metadata-only"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "P1-F008"
+      - "Human Gate 1 remains PENDING for data acquisition"
+    acceptance_criteria:
+      - "Verified public metadata candidate rows are added to source-specific candidate tables."
+      - "Every candidate row uses audit_status candidate_pending_audit."
+      - "Unknown fields remain TODO or unclear."
+      - "Source URLs are recorded in notes."
+      - "metadata/dataset_catalog.csv remains unaudited and unchanged."
+      - "No full data files are downloaded."
+      - "No dataset is approved."
+      - "Human Gate 1 remains PENDING."
+
+  - id: P1-F010
+    title: "Manual metadata audit of candidate datasets"
+    phase: 1
+    status: done
+    type: bioinformatics
+    blocked_by:
+      - "P1-F009"
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "Existing GEO and CELLxGENE candidate rows are manually audited using public metadata only."
+      - "reports/tables/manual_metadata_audit_summary.csv exists."
+      - "One manual audit summary row exists per known candidate."
+      - "Every candidate remains candidate_pending_audit."
+      - "No dataset is approved."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "Human Gate 1 remains PENDING."
+      - "No full datasets are downloaded."
+      - "No model code is created."
+
+  - id: P1-F011
+    title: "Scientific Judge review of dataset feasibility"
+    phase: 1
+    status: done
+    type: scientific_judge
+    blocked_by:
+      - "P1-F010"
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "state/judge_reports/P1-F011_scientific_judge_report.md exists."
+      - "reports/tables/scientific_judge_dataset_review.csv exists."
+      - "Every known candidate has one scientific review row."
+      - "No candidate is marked approved."
+      - "Human Gate 1 remains PENDING."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "No full datasets are downloaded."
+      - "No model code is created."
+
+  - id: P1-F012
+    title: "Bioinformatics Judge review of metadata validity"
+    phase: 1
+    status: done
+    type: bioinformatics_judge
+    blocked_by:
+      - "P1-F011"
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "state/judge_reports/P1-F012_bioinformatics_judge_report.md exists."
+      - "reports/tables/bioinformatics_judge_review.csv exists."
+      - "Every known candidate has one bioinformatics review row."
+      - "No candidate is marked approved."
+      - "Human Gate 1 remains PENDING."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "No full datasets are downloaded."
+      - "No model code is created."
+
+  - id: P1-F013
+    title: "Repair Loop for judge blockers"
+    phase: 1
+    status: done
+    type: repair
+    blocked_by:
+      - "P1-F011"
+      - "P1-F012"
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "state/repair_queue.yaml exists."
+      - "reports/tables/judge_repair_queue.csv exists."
+      - "Repair rows exist."
+      - "No repair is marked resolved."
+      - "Every repair has required evidence."
+      - "Every repair has forbidden resolution actions."
+      - "Human Gate 1 remains PENDING."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "project_state.blocked is true."
+      - "No dataset is approved."
+      - "No full datasets are downloaded."
+      - "No model code is created."
+
+  - id: P1-F014
+    title: "Final decision table after repair queue"
+    phase: 1
+    status: done
+    type: governance
+    blocked_by:
+      - "P1-F013"
+      - "Human Gate 1 remains PENDING for dataset approval"
+    acceptance_criteria:
+      - "reports/tables/final_dataset_feasibility_decision.csv exists."
+      - "state/judge_reports/P1-F014_final_dataset_decision_report.md exists."
+      - "Every known candidate has one final decision row."
+      - "No candidate is marked approved."
+      - "Human Gate 1 remains PENDING."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "project_state.blocked remains true."
+      - "No full datasets are downloaded."
+      - "No model code is created."
+
+  - id: P1-F015
+    title: "Record Human Gate 1 restricted approval"
+    phase: 1
+    status: done
+    type: governance
+    blocked_by:
+      - "P1-F014"
+      - "Final decision table is complete"
+    acceptance_criteria:
+      - "Human Gate 1 status is recorded as approved_with_restrictions."
+      - "Restrictions block modeling, downloads, selected_datasets, and external_validation_cohort."
+      - "Phase 2 starts with scaffold-only scope."
+
+  - id: P2-F001
+    feature_id: P2-F001
+    title: "Phase 2 data pipeline scaffold"
+    phase: 2
+    status: done
+    description: "Create scaffold docs, config, package directories, validation script, and tests for restricted Phase 2 data-pipeline planning."
+    acceptance_criteria:
+      - "docs/06_data_pipeline_plan.md exists."
+      - "configs/data_pipeline.yaml exists."
+      - "scripts/08_phase2_pipeline_scaffold.py exists."
+      - "src/data, src/qc, and src/utils package markers exist."
+      - "allow_downloads is false."
+      - "allow_modeling is false."
+      - "split_policy is patient_or_cohort_only."
+      - "No data files are downloaded."
+      - "No model files are created."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+    dependencies:
+      - "Human Gate 1 approved_with_restrictions."
+      - "P1-F014 final decision table."
+    required_tests:
+      - "tests/test_phase2_pipeline_config.py"
+      - "tests/test_phase2_no_modeling_or_downloads.py"
+    judge_gates:
+      - "No modeling gate opened."
+      - "No data acquisition gate opened."
+      - "Future split protocols require patient-level or cohort-level validation."
+
+  - id: P2-F002
+    feature_id: P2-F002
+    title: "AnnData schema and integrity contract"
+    phase: 2
+    status: done
+    description: "Define the expected AnnData obs, var, layers, uns, provenance, and integrity requirements without creating AnnData objects."
+    acceptance_criteria:
+      - "AnnData schema contract document exists."
+      - "Required obs and var fields are listed."
+      - "No AnnData object is created."
+      - "No data are downloaded."
+      - "metadata/anndata_schema.yaml exists."
+      - "src/data/anndata_schema.py validates mock AnnData-like structures."
+      - "tests/test_anndata_schema_contract.py passes."
+    dependencies:
+      - "P2-F001"
+    required_tests:
+      - "AnnData schema contract test."
+    judge_gates:
+      - "Bioinformatics Judge review before any data object creation."
+
+  - id: P2-F003
+    feature_id: P2-F003
+    title: "Metadata harmonization schema"
+    phase: 2
+    status: done
+    description: "Create source-to-common metadata mapping schema for patient, donor, sample, cohort, batch, tissue, assay, and disease labels."
+    acceptance_criteria:
+      - "Metadata harmonization schema exists."
+      - "Source field mapping file exists."
+      - "GEO, CELLxGENE, and HCA mapping sections exist."
+      - "Mock metadata validator rejects missing required fields."
+      - "Unknown fields remain TODO or unclear."
+      - "No labels are inferred."
+      - "No data are downloaded."
+    dependencies:
+      - "P2-F001"
+      - "P2-F002"
+    required_tests:
+      - "tests/test_metadata_harmonization_schema.py"
+    judge_gates:
+      - "Scientific Judge review for label provenance."
+
+  - id: P2-F004
+    feature_id: P2-F004
+    title: "Gene identifier policy"
+    phase: 2
+    status: done
+    description: "Define how future feature identifiers, gene symbols, stable IDs, and pathway mapping compatibility will be audited."
+    acceptance_criteria:
+      - "Gene identifier policy exists."
+      - "Gene mapping report exists with headers only."
+      - "No gene IDs are inferred from organism or assay."
+      - "Silent gene dropping is forbidden."
+      - "Silent duplicate gene collapse is forbidden."
+      - "Foundation model vocabulary overlap tracking is required."
+      - "Pathway mapping requirements are documented."
+      - "No data are downloaded."
+      - "No preprocessing is added."
+    dependencies:
+      - "P2-F001"
+      - "P2-F002"
+      - "P2-F003"
+    required_tests:
+      - "tests/test_gene_identifier_policy.py"
+    judge_gates:
+      - "Bioinformatics Judge review before pathway analysis."
+
+  - id: P2-F005
+    feature_id: P2-F005
+    title: "QC protocol scaffold"
+    phase: 2
+    status: done
+    description: "Create QC planning scaffold for future cell, gene, sample, patient, cohort, and batch-level quality checks."
+    acceptance_criteria:
+      - "QC protocol scaffold exists."
+      - "configs/qc.yaml exists."
+      - "QC summary and threshold decision reports exist with headers only."
+      - "Applied thresholds require approval."
+      - "Guessed threshold sources are rejected."
+      - "No QC metrics are computed."
+      - "No data are downloaded."
+      - "No real preprocessing is added."
+    dependencies:
+      - "P2-F001"
+      - "P2-F002"
+      - "P2-F003"
+      - "P2-F004"
+    required_tests:
+      - "tests/test_qc_protocol_config.py"
+      - "tests/test_qc_policy.py"
+    judge_gates:
+      - "Bioinformatics Judge review before QC execution."
+
+  - id: P2-F006
+    feature_id: P2-F006
+    title: "Patient-level split protocol"
+    phase: 2
+    status: done
+    description: "Define patient-level and cohort-level split protocol; explicitly forbid cell-level random splitting."
+    acceptance_criteria:
+      - "Split protocol exists."
+      - "configs/splitting.yaml exists."
+      - "reports/tables/split_manifest.csv exists with headers only."
+      - "Cell-level split is forbidden."
+      - "Split unit requires patient_id or donor_id."
+      - "Train/test entity overlap is rejected in mock manifests."
+      - "No real split is created."
+      - "No data are downloaded."
+    dependencies:
+      - "P2-F001"
+      - "P2-F002"
+      - "P2-F003"
+      - "P2-F005"
+    required_tests:
+      - "tests/test_patient_split_policy.py"
+    judge_gates:
+      - "Scientific Judge review for leakage prevention."
+
+  - id: P2-F007
+    feature_id: P2-F007
+    title: "Leakage prevention tests"
+    phase: 2
+    status: done
+    description: "Create tests that future split manifests cannot put the same patient, donor, sample, or cohort in incompatible partitions."
+    acceptance_criteria:
+      - "Leakage prevention tests exist."
+      - "Tests reject cell-level splits."
+      - "Tests reject patient, donor, and sample overlap."
+      - "Tests detect duplicated cell IDs across splits."
+      - "Tests detect batch and label leakage on mock rows."
+      - "Aggregate leakage check returns PASS/FAIL."
+      - "Tests run without data downloads."
+    dependencies:
+      - "P2-F006"
+    required_tests:
+      - "tests/test_leakage_checks.py"
+    judge_gates:
+      - "Scientific Judge leakage review."
+
+  - id: P2-F008
+    feature_id: P2-F008
+    title: "Cohort manifest design"
+    phase: 2
+    status: done
+    description: "Design cohort manifest fields for source, accession, patient, donor, sample, tissue, assay, batch, label, and provenance."
+    acceptance_criteria:
+      - "Cohort manifest schema exists."
+      - "metadata/cohort_manifest.csv exists with headers only."
+      - "approved_role cannot assign training or external validation without explicit human gate approval."
+      - "Manifest rows require provenance_url and audit_status."
+      - "No cohort is selected."
+      - "No external validation cohort is assigned."
+    dependencies:
+      - "P2-F003"
+      - "P2-F006"
+      - "P2-F007"
+    required_tests:
+      - "tests/test_cohort_manifest_schema.py"
+      - "tests/test_cohort_manifest_validation.py"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge review before cohort assignment."
+
+  - id: P2-F009
+    feature_id: P2-F009
+    title: "Candidate dataset access plan"
+    phase: 2
+    status: done
+    description: "Plan allowed metadata and future acquisition actions for GSE137029 and CELLxGENE/HCA under restricted Phase 2 scope."
+    acceptance_criteria:
+      - "Access plan exists."
+      - "Exactly two candidate access rows exist."
+      - "approved_for_download remains false for every row."
+      - "approved_for_modeling remains false for every row."
+      - "Audit status remains pending_human_download_gate."
+      - "Downloads remain disabled unless a later explicit feature permits them."
+      - "GSE174188 remains excluded from Phase 2 processing."
+    dependencies:
+      - "P2-F001"
+      - "P2-F008"
+    required_tests:
+      - "tests/test_dataset_access_plan.py"
+    judge_gates:
+      - "Human approval required before any download."
+
+  - id: P2-F010
+    feature_id: P2-F010
+    title: "Human Gate 2 preparation: labels and prediction task"
+    phase: 2
+    status: done
+    description: "Prepare evidence package for label feasibility and prediction-task selection without modeling."
+    acceptance_criteria:
+      - "docs/07_prediction_task_plan.md exists."
+      - "metadata/prediction_task_schema.yaml exists."
+      - "reports/tables/prediction_task_candidates.csv contains the four candidate tasks."
+      - "state/human_gate_2_checklist.yaml exists with all checks pending."
+      - "No task is marked approved."
+      - "Primary task remains TODO until labels are verified."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "No modeling starts."
+    dependencies:
+      - "P2-F003"
+      - "P2-F006"
+      - "P2-F008"
+    required_tests:
+      - "tests/test_prediction_task_candidates.py"
+    judge_gates:
+      - "Scientific Judge label feasibility review."
+      - "Human Gate 2 required before task selection."
+
+  - id: P2-F011
+    feature_id: P2-F011
+    title: "Human Gate 2 Decision"
+    phase: 2
+    status: done
+    description: "Record restricted approval for SLE diagnosis/case-control baseline design without enabling modeling."
+    acceptance_criteria:
+      - "state/human_gate_2_decision.yaml exists."
+      - "Human Gate 2 is approved_with_restrictions."
+      - "Only SLE diagnosis/case-control baseline design is approved."
+      - "Disease activity, flare, and lupus nephritis tasks remain blocked."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "allow_modeling remains false."
+      - "Phase 3 is backlog-only."
+    dependencies:
+      - "P2-F010"
+    required_tests:
+      - "tests/test_human_gate_2_decision.py"
+    judge_gates:
+      - "Restricted Human Gate 2 decision recorded."
+
+  - id: P3-F001
+    feature_id: P3-F001
+    title: "Baseline modeling scaffold"
+    phase: 3
+    status: done
+    description: "Define baseline architecture and safety controls without fitting models."
+    acceptance_criteria:
+      - "docs/08_baseline_modeling_plan.md exists."
+      - "configs/baseline_modeling.yaml exists."
+      - "Baseline package markers and safe validation script exist."
+      - "All baseline families remain disabled for training."
+      - "Deep learning, foundation models, and uncertainty methods remain disabled."
+      - "Patient- or donor-level split policy is preserved."
+      - "No model artifacts are created."
+    dependencies:
+      - "P2-F011"
+    required_tests:
+      - "tests/test_baseline_modeling_config.py"
+      - "tests/test_baseline_modeling_scaffold.py"
+    judge_gates:
+      - "Scientific Judge scope review."
+
+  - id: P3-F002
+    feature_id: P3-F002
+    title: "Pseudobulk feature design"
+    phase: 3
+    status: done
+    description: "Plan patient-level pseudobulk features and provenance requirements."
+    acceptance_criteria:
+      - "Pseudobulk feature design is documented."
+      - "configs/pseudobulk.yaml exists and disables real extraction and training."
+      - "metadata/pseudobulk_feature_schema.yaml exists."
+      - "reports/tables/pseudobulk_feature_manifest.csv contains headers only."
+      - "Mock-only pseudobulk validation utilities exist."
+      - "No cell-level split is allowed."
+      - "No real features are generated in the planning feature."
+    dependencies:
+      - "P3-F001"
+    required_tests:
+      - "tests/test_pseudobulk_feature_design.py"
+    judge_gates:
+      - "Bioinformatics Judge feature-design review."
+
+  - id: P3-F003
+    feature_id: P3-F003
+    title: "Logistic regression baseline"
+    phase: 3
+    status: done
+    description: "Create a non-training logistic regression scaffold for the restricted SLE case-control task."
+    acceptance_criteria:
+      - "Logistic regression design is documented."
+      - "Training, prediction, and model artifacts remain disabled in config."
+      - "Only patient-level pseudobulk input is accepted."
+      - "Results and coefficient tables contain headers only."
+      - "The scaffold explicitly refuses training."
+      - "No estimator library or real data is loaded."
+    dependencies:
+      - "P3-F002"
+    required_tests:
+      - "tests/test_logistic_regression_baseline_scaffold.py"
+    judge_gates:
+      - "Scientific and Engineering Judge review."
+
+  - id: P3-F004
+    feature_id: P3-F004
+    title: "Random forest / XGBoost baseline"
+    phase: 3
+    status: done
+    description: "Create non-training random forest and optional XGBoost scaffolds under the restricted task and split policy."
+    acceptance_criteria:
+      - "Tree-based baseline design is documented."
+      - "Training, prediction, and model artifacts remain disabled."
+      - "Only patient-level pseudobulk input is accepted."
+      - "Random forest and XGBoost training are disabled."
+      - "XGBoost remains an optional dependency and is not imported."
+      - "Results and feature-importance tables contain headers only."
+      - "The scaffold explicitly refuses training."
+    dependencies:
+      - "P3-F002"
+      - "P3-F003"
+    required_tests:
+      - "tests/test_tree_baseline_scaffold.py"
+    judge_gates:
+      - "Scientific and Engineering Judge review."
+
+  - id: P3-F005
+    feature_id: P3-F005
+    title: "Cell-type proportion baseline"
+    phase: 3
+    status: done
+    description: "Create a mock-only patient-level cell-type proportion baseline scaffold."
+    acceptance_criteria:
+      - "Cell-type proportion baseline design is documented."
+      - "Feature extraction, training, prediction, and artifacts remain disabled."
+      - "Patient, donor, and linked sample aggregation units are allowed."
+      - "Cell and barcode aggregation units are rejected."
+      - "Feature and result tables contain headers only."
+      - "Mock rows require valid counts, fractions, and audit status."
+      - "No cell-level split is used."
+    dependencies:
+      - "P3-F002"
+    required_tests:
+      - "tests/test_cell_type_proportion_baseline.py"
+    judge_gates:
+      - "Bioinformatics and Scientific Judge review."
+
+  - id: P3-F006
+    feature_id: P3-F006
+    title: "Baseline evaluation protocol"
+    phase: 3
+    status: done
+    description: "Define patient-level metric, calibration, confidence-interval, and claim-safety contracts without computing performance."
+    acceptance_criteria:
+      - "Baseline evaluation protocol is documented."
+      - "Real evaluation and performance claims remain disabled."
+      - "Patient-level predictions and verified labels are required."
+      - "Leakage checks and split manifests are required."
+      - "Evaluation and prediction tables contain headers only."
+      - "Mock rows reject cell-level evaluation, unverified labels, and failed leakage checks."
+      - "External validation remains TODO and is not claimed."
+    dependencies:
+      - "P3-F001"
+    required_tests:
+      - "tests/test_baseline_evaluation_protocol.py"
+    judge_gates:
+      - "Scientific Judge evaluation review."
+
+  - id: P3-F007
+    feature_id: P3-F007
+    title: "Calibration metrics scaffold"
+    phase: 3
+    status: done
+    description: "Define patient-level Brier score, ECE, and reliability-figure contracts without computing calibration or uncertainty."
+    acceptance_criteria:
+      - "Calibration protocol and medical calibration caveats are documented."
+      - "Real calibration, reliability plots, uncertainty methods, and claims remain disabled."
+      - "Brier score and ECE are planned without computation."
+      - "ECE binning strategy and bin count remain TODO."
+      - "Calibration and reliability tables contain headers only."
+      - "Mock rows reject cell-level units, unverified labels, and failed leakage checks."
+      - "No uncertainty model or reliability figure is created."
+    dependencies:
+      - "P3-F006"
+    required_tests:
+      - "tests/test_calibration_metrics_scaffold.py"
+    judge_gates:
+      - "Scientific Judge calibration review."
+
+  - id: P3-F008
+    feature_id: P3-F008
+    title: "Baseline Scientific Judge review"
+    phase: 3
+    status: done
+    description: "Review future baseline evidence, leakage controls, and claim limits."
+    acceptance_criteria:
+      - "Scientific Judge report and structured review table exist."
+      - "Baseline design adequacy is decided."
+      - "Training remains explicitly not approved."
+      - "Leakage, label, external validation, calibration, and overfitting risks are documented."
+      - "Required conditions before training are explicit."
+      - "No unsupported performance or clinical claims are accepted."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F003"
+      - "P3-F004"
+      - "P3-F005"
+      - "P3-F006"
+      - "P3-F007"
+    required_tests:
+      - "tests/test_baseline_scientific_judge_review.py"
+    judge_gates:
+      - "Scientific Judge decision required."
+
+  - id: P3-F009
+    feature_id: P3-F009
+    title: "Modeling Readiness Gate"
+    phase: 3
+    status: done
+    description: "Create a strict evidence gate that keeps training disabled until every blocking readiness condition is met."
+    acceptance_criteria:
+      - "state/modeling_readiness_gate.yaml exists."
+      - "Readiness status is not_ready."
+      - "All eleven required conditions are represented."
+      - "Unresolved blocking conditions remain pending."
+      - "allow_modeling and training_allowed remain false."
+      - "selected_datasets remains empty."
+      - "external_validation_cohort remains TODO."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F008"
+    required_tests:
+      - "tests/test_modeling_readiness_gate.py"
+    judge_gates:
+      - "Scientific Judge readiness decision."
+
+  - id: P3-F010
+    feature_id: P3-F010
+    title: "Dataset and label verification plan"
+    phase: 3
+    status: done
+    description: "Plan auditable resolution of dataset selection, patient identifiers, and diagnosis-label provenance without training."
+    acceptance_criteria:
+      - "docs/09_dataset_label_verification_plan.md exists."
+      - "metadata/dataset_label_verification_schema.yaml exists."
+      - "The verification checklist contains all eight blocking requirements."
+      - "No verification row is marked verified."
+      - "Dataset and label blockers have explicit evidence requirements."
+      - "No identifiers or labels are inferred."
+      - "No dataset is selected automatically."
+      - "Training remains disabled."
+    dependencies:
+      - "P3-F009"
+    required_tests:
+      - "tests/test_dataset_label_verification_plan.py"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge verification review."
+
+  - id: P3-F011
+    feature_id: P3-F011
+    title: "Training permission decision"
+    phase: 3
+    status: done
+    description: "Record an explicit human decision to approve or deny restricted baseline training after readiness evidence is reviewed."
+    acceptance_criteria:
+      - "Every blocking readiness condition is reviewed."
+      - "Training permission is explicit and auditable."
+      - "Training permission is blocked while readiness remains not_ready."
+      - "allow_modeling and training_allowed remain false."
+      - "selected_datasets remains empty and external_validation_cohort remains TODO."
+      - "Foundation models and uncertainty methods remain separately gated."
+      - "Phase 4 does not start without explicit approval."
+    dependencies:
+      - "P3-F010"
+    required_tests:
+      - "tests/test_training_permission_decision.py"
+    judge_gates:
+      - "Human training permission gate."
+
+  - id: P3-F012
+    feature_id: P3-F012
+    title: "Dataset selection and label verification"
+    phase: 3
+    status: done
+    description: "Review repository-recorded evidence for GSE137029 and its linked CELLxGENE/HCA representation without selecting a dataset or enabling training."
+    acceptance_criteria:
+      - "Dataset selection, label provenance, and patient-ID verification reports exist."
+      - "Only GSE137029 and the linked CELLxGENE/HCA candidate are reviewed."
+      - "Verified facts have explicit evidence sources."
+      - "Patient-level label and identifier gaps remain unclear or blocked where evidence is insufficient."
+      - "No dataset is approved or added to selected_datasets."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "External validation remains TODO."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F011"
+    required_tests:
+      - "tests/test_dataset_selection_label_verification.py"
+    judge_gates:
+      - "Separate human dataset selection and training permission review after blockers are resolved."
+
+  - id: P3-F013
+    feature_id: P3-F013
+    title: "Patient/donor ID and label provenance evidence plan"
+    phase: 3
+    status: done
+    description: "Define exact source evidence required to verify identifiers, diagnosis labels, and GEO/CELLxGENE/HCA overlap without downloading full data or enabling modeling."
+    acceptance_criteria:
+      - "The patient/donor ID and label provenance evidence plan is documented."
+      - "Patient/donor evidence rows cover GSE137029, CELLxGENE/HCA, and cohort overlap."
+      - "Label evidence rows cover diagnosis, comparator, activity, and lupus nephritis labels."
+      - "Every evidence-plan row remains pending or blocked."
+      - "Disease activity and lupus nephritis remain blocked."
+      - "The Modeling Readiness Gate references both evidence-plan tables."
+      - "No dataset is selected and no external-validation cohort is assigned."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F012"
+    required_tests:
+      - "tests/test_patient_label_evidence_plan.py"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge evidence review before any blocker is changed."
+
+  - id: P3-F014
+    feature_id: P3-F014
+    title: "Controlled metadata inspection plan"
+    phase: 3
+    status: done
+    description: "Define metadata-only inspection targets, prohibited actions, evidence logging, and a pending inspection gate without inspecting or downloading data."
+    acceptance_criteria:
+      - "The controlled metadata inspection plan exists."
+      - "Exactly nine metadata and file-manifest targets are listed."
+      - "Every inspection target remains pending_inspection."
+      - "The metadata evidence log contains headers only."
+      - "The metadata inspection gate permits metadata-only inspection planning and forbids full downloads."
+      - "Modeling readiness remains not_ready."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "No dataset or external-validation cohort is assigned."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F013"
+    required_tests:
+      - "tests/test_controlled_metadata_inspection_plan.py"
+    judge_gates:
+      - "Explicit approval required before P3-F015 executes any metadata inspection."
+
+  - id: P3-F015
+    feature_id: P3-F015
+    title: "Controlled metadata inspection execution"
+    phase: 3
+    status: done
+    description: "Review explicitly approved public metadata targets and record source-preserving evidence without full-data download."
+    acceptance_criteria:
+      - "Public GEO, SRA, CELLxGENE, HCA, and publication metadata are reviewed without full-data download."
+      - "Evidence rows contain explicit source URLs and allowed verification statuses."
+      - "GSE137029 sample-level condition values are distinguished from patient-level label linkage."
+      - "CELLxGENE donor-field visibility is distinguished from donor-to-label linkage."
+      - "Source-level overlap is documented without inventing exact donor overlap."
+      - "GSE137029 remains unselected."
+      - "CELLxGENE/HCA remains unassigned as external validation."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F014"
+    required_tests:
+      - "tests/test_dataset_label_evidence_review.py"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge evidence decision."
+
+  - id: P3-F016
+    feature_id: P3-F016
+    title: "Modeling Readiness Re-check"
+    phase: 3
+    status: done
+    description: "Re-check every training-critical readiness condition after P3-F015 metadata review without enabling modeling."
+    acceptance_criteria:
+      - "A Scientific Judge readiness re-check report exists."
+      - "The structured re-check table covers all requested requirements."
+      - "No blocking readiness condition passes without explicit sufficient evidence."
+      - "Patient/donor linkage, label provenance, split, leakage, QC, and feature blockers remain pending."
+      - "The external-validation plan remains documented while cohort assignment remains TODO."
+      - "Modeling readiness remains not_ready."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "No dataset is selected."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F015"
+    required_tests:
+      - "tests/test_modeling_readiness_recheck.py"
+    judge_gates:
+      - "Scientific Judge readiness decision."
+
+  - id: P3-F017
+    feature_id: P3-F017
+    title: "Training Permission Re-evaluation"
+    phase: 3
+    status: done
+    description: "Record the formal post-recheck training denial, continue metadata inspection, and document pivot triggers without activating a pivot."
+    acceptance_criteria:
+      - "The training permission reevaluation YAML and report exist."
+      - "The structured reevaluation table contains all requested decision items."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "Phase 4 permission remains blocked."
+      - "Decision is continue_metadata_inspection."
+      - "Pivot status remains not_activated."
+      - "No dataset or external-validation cohort is assigned."
+      - "No modeling or model artifact is created."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F016"
+    required_tests:
+      - "tests/test_training_permission_reevaluation.py"
+    judge_gates:
+      - "Scientific Judge training permission decision."
+
+  - id: P3-F018
+    feature_id: P3-F018
+    title: "Metadata inspection evidence expansion"
+    phase: 3
+    status: done
+    description: "Complete a final metadata-only expansion using GEO MINiML, linked UCSC metadata vectors, portal descriptions, and public manifests."
+    acceptance_criteria:
+      - "The expansion report and seven-row summary table exist."
+      - "GSE137029 sample labels are distinguished from patient-level mappings."
+      - "CELLxGENE/HCA donor-label and sample-donor mappings are explicitly audited."
+      - "No expression matrix, H5AD, full metadata table, or sequencing data is downloaded."
+      - "Exact cross-repository overlap remains blocked unless explicitly verified."
+      - "No dataset or external-validation cohort is assigned."
+      - "Training permission remains blocked and allow_modeling remains false."
+      - "Pivot gate preparation is recommended without activating pivot."
+      - "Phase 4 is not started."
+    dependencies:
+      - "P3-F017"
+    required_tests:
+      - "tests/test_metadata_evidence_expansion.py"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge expansion review."
+
+  - id: P3-F019
+    feature_id: P3-F019
+    title: "Dataset strategy decision / pivot gate"
+    phase: 3
+    status: done
+    description: "Select the next dataset strategy after evidence expansion without selecting a dataset or enabling modeling."
+    acceptance_criteria:
+      - "The strategy decision YAML and judge report exist."
+      - "All five strategy options are assessed."
+      - "Open strategy blockers are documented."
+      - "CELLxGENE/HCA is designated for primary-candidate validation only."
+      - "GSE137029 remains blocked for patient-level modeling."
+      - "No dataset or external-validation cohort is assigned."
+      - "Training permission, modeling, and Phase 4 remain blocked."
+      - "The scientific-objective pivot remains not_activated."
+    dependencies:
+      - "P3-F018"
+    required_tests:
+      - "tests/test_dataset_strategy_decision.py"
+    judge_gates:
+      - "Explicit Scientific Judge and human strategy decision."
+
+  - id: P3-F020
+    feature_id: P3-F020
+    title: "CELLxGENE/HCA primary dataset validation"
+    phase: 3
+    status: TODO
+    description: "Validate the selected strategy candidate's access, metadata completeness, repeated samples, QC, donor-level split, leakage, and feature feasibility without selecting it or enabling training."
+    acceptance_criteria:
+      - "TODO: Define only after explicit instruction."
+    dependencies:
+      - "P3-F019"
+    required_tests:
+      - "TODO"
+    judge_gates:
+      - "Scientific and Bioinformatics Judge validation before dataset selection."

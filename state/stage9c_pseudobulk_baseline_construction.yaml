@@ -1,0 +1,15 @@
+stage: 9C
+name: donor-level pseudobulk baseline construction
+status: blocked_stage9b_inputs_missing
+stage9b_ready: false
+pseudobulk_matrix: not_constructed
+baseline_inputs: missing
+numeric_execution: not_run
+predictions: not_created
+scores: not_created
+stage9d_ready: false
+next_stage: 9D_blocked_handoff_closeout
+notes:
+  - Stage 9C was opened only as a construction gate.
+  - Stage 9B did not pass because required local baseline inputs were missing.
+  - No donor-level pseudobulk matrix was constructed.

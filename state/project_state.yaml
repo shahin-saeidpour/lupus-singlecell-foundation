@@ -1,0 +1,2833 @@
+project:
+  name: lupus-singlecell-foundation
+  status: stage6_complete
+  current_phase: Stage 6
+  current_phase_name: Stage 6 Complete
+  current_feature: STAGE6-COMPLETE
+  blocked: false
+  blocked_reason: null
+  human_gate_2: approved_with_restrictions
+  primary_task: Active SLE flare discrimination
+  external_validation_cohort: TODO
+  selected_datasets:
+  - GSE174188_CELLxGENE_exploratory
+  modeling_allowed: false
+  allow_modeling: false
+  training_allowed: false
+  modeling_readiness: stage6_complete_no_stage7_required
+  training_permission: production_modeling_blocked_pending_pipeline
+  phase4_permission: real_artifact_validation_only
+  stage5_permission: stage5_complete_no_modeling_authorization
+  stage5_permission: stage5_complete_no_modeling_authorization
+  dataset_strategy_decision: reconcile_real_CELLxGENE_exploratory_run
+  pivot_status: not_activated
+  dataset_download_allowed: false
+  allow_downloads: false
+  dataset_accessions_verified: exploratory_CELLxGENE_dataset_id_recorded_pending_formal_test
+active_status_authority:
+  current_authoritative_sections:
+  - project
+  - stage1_package_and_labels
+  - stage1_metadata_qc
+  - stage1_cohort_summary
+  - stage1_anndata_schema
+  - stage1_ingestion_readiness
+  - stage1_manifest_contract
+  - stage1_closeout_gate
+  - stage2_embedding_plan
+  - stage2_embedding_config_contract
+  - stage2_embedding_provenance
+  - stage2_dry_run_readiness
+  - stage2_geneformer_extraction_runner
+  - stage2_closeout
+  - stage4_real_embedding_artifact_validation
+  note: Older phase/gate/test-scaffold records are retained as historical provenance
+    and do not override the completed Stage 2 closeout status.
+  historical_records_retained: true
+  historical_records_should_not_block_reconciliation: true
+phase_controls:
+  first_real_scientific_phase: 'Phase 1: Dataset Feasibility Audit'
+  no_model_training_before: Dataset feasibility approval and later modeling readiness
+    approval
+  unknown_information_policy: Mark as TODO
+phase_2_restrictions:
+  no_modeling: true
+  no_downloads_without_explicit_feature: true
+  no_cell_level_splits: true
+  only_pipeline_scaffold: true
+  gse137029_scope: Primary candidate for Phase 2 pipeline development only; not approved
+    for modeling.
+  cellxgene_hca_scope: Metadata harmonization design only; not approved for modeling.
+  gse174188_scope: needs_manual_verification; not part of Phase 2 processing.
+  gse162577_scope: limited_candidate; not primary.
+phase_3_restrictions:
+  baseline_design_only: true
+  no_training: true
+  no_deep_learning: true
+  no_foundation_models: true
+  no_uncertainty_methods: true
+  no_cell_level_splits: true
+  no_dataset_approval: true
+  external_validation_unresolved: true
+phase_3_scientific_review:
+  status: accepted_with_restrictions
+  scaffold_adequate: true
+  modeling_ready: false
+  training_allowed: false
+  next_required_gate: Controlled baseline modeling/training gate
+modeling_readiness_gate:
+  status: not_ready
+  blocking_items: 8
+  passed_items: 3
+  allow_modeling: false
+  next_feature: P3-F020 CELLxGENE/HCA primary dataset validation, only after explicit
+    instruction
+training_permission_decision:
+  status: blocked
+  reason: unresolved modeling readiness blockers
+  allow_modeling: false
+  phase_4_allowed: false
+  recommendation: continue verification, not modeling
+training_permission_reevaluation:
+  status: completed
+  training_permission: blocked
+  allow_modeling: false
+  decision: continue_metadata_inspection
+  pivot_status: not_activated
+  phase4_permission: blocked
+  selected_datasets: []
+  external_validation_cohort: TODO
+  recommendation: Continue controlled metadata inspection before any modeling.
+metadata_evidence_expansion:
+  status: completed
+  evidence_rows_added: 7
+  gse137029_patient_mapping: blocked
+  gse137029_sample_labels: verified_sample_level_only
+  cellxgene_hca_donor_label_mapping: verified
+  cellxgene_hca_sample_mapping: verified
+  cross_repository_overlap: blocked
+  external_validation_feasibility: blocked
+  more_same_source_inspection_useful: false
+  prepare_pivot_gate: true
+  pivot_status: not_activated
+  selected_datasets: []
+  external_validation_cohort: TODO
+  modeling_readiness: not_ready
+  training_permission: blocked
+  allow_modeling: false
+dataset_strategy:
+  status: decided_with_restrictions
+  decision: switch_primary_to_CELLxGENE_HCA
+  decision_scope: primary_candidate_validation_only
+  primary_validation_candidate: CELLxGENE_HCA_436154da-bcf1-4130-9c8b-120ff9a888f2_218acb0f-9f2f-4f76-b90b-15a4b7c7f629
+  gse137029_role: blocked_for_patient_level_modeling
+  cellxgene_hca_role: candidate_pending_primary_validation
+  external_validation_strategy: search_for_separate_independent_cohort
+  pivot_status: not_activated
+  selected_datasets: []
+  external_validation_cohort: TODO
+  modeling_readiness: not_ready
+  training_permission: blocked
+  allow_modeling: false
+  phase4_permission: blocked
+  next_feature: P3-F020 CELLxGENE/HCA primary dataset validation
+dataset_selection_and_label_verification:
+  status: completed_with_blockers
+  candidates_reviewed:
+  - GSE137029
+  - CELLxGENE_HCA_436154da-bcf1-4130-9c8b-120ff9a888f2_218acb0f-9f2f-4f76-b90b-15a4b7c7f629
+  primary_candidate_for_continued_verification: CELLxGENE_HCA_436154da-bcf1-4130-9c8b-120ff9a888f2_218acb0f-9f2f-4f76-b90b-15a4b7c7f629
+  dataset_selected: false
+  patient_level_labels_verified: false
+  leakage_safe_identifiers_verified: false
+  training_candidate_approved: false
+  allow_modeling: false
+  training_permission: blocked
+  recommendation: Continue approved metadata verification; do not select or train.
+patient_id_label_provenance_evidence_plan:
+  status: completed_with_blockers
+  candidates:
+  - GSE137029
+  - CELLxGENE_HCA_436154da-bcf1-4130-9c8b-120ff9a888f2_218acb0f-9f2f-4f76-b90b-15a4b7c7f629
+  patient_donor_id_evidence_verified: false
+  patient_level_label_provenance_verified: false
+  cohort_overlap_resolved: false
+  disease_activity_labels_verified: false
+  lupus_nephritis_labels_verified: false
+  dataset_selected: false
+  modeling_readiness: not_ready
+  training_permission: blocked
+  allow_modeling: false
+controlled_metadata_inspection_plan:
+  status: evidence_review_completed_with_blockers
+  inspection_gate_status: reviewed_with_blockers
+  allow_metadata_only_inspection: true
+  allow_full_data_download: false
+  evidence_rows_recorded: 25
+  inspection_targets_reviewed: 9
+  dataset_selected: false
+  modeling_readiness: not_ready
+  training_permission: blocked
+  allow_modeling: false
+  phase_4_started: false
+dataset_label_evidence_review:
+  status: completed_with_blockers
+  gse137029_selection: blocked
+  cellxgene_hca_external_validation: blocked
+  gse137029_sample_condition_field_verified: true
+  cellxgene_donor_id_field_verified: true
+  source_level_overlap_verified: true
+  patient_level_label_linkage_verified: false
+  exact_donor_overlap_resolved: false
+  selected_datasets: []
+  external_validation_cohort: TODO
+  modeling_readiness: not_ready
+  training_permission: blocked
+  allow_modeling: false
+modeling_readiness_recheck:
+  status: completed
+  decision: not_ready
+  recommendation: more_metadata_inspection_required
+  resolved_blocking_conditions: []
+  remaining_blocking_conditions:
+  - dataset_selection
+  - label_provenance
+  - patient_or_donor_id_availability
+  - split_manifest_readiness
+  - leakage_check_readiness
+  - training_cohort_suitability
+  - qc_approval
+  - feature_manifest_readiness
+  external_validation_plan_status: passed_plan_only
+  external_validation_cohort: TODO
+  selected_datasets: []
+  training_permission: blocked
+  allow_modeling: false
+  pivot_condition: Pivot if explicit patient-level mappings cannot be obtained without
+    prohibited access or inference.
+human_gates:
+  phase_0_scaffold_review:
+    status: completed_by_user_instruction
+    owner: TODO
+    required_before: Phase 1 start
+  dataset_feasibility_approval:
+    label: 'Human Gate 1: Dataset Feasibility Approved'
+    status: approved_with_restrictions
+    owner: TODO
+    required_before: Restricted Phase 2 scaffold only; downloads, dataset selection,
+      and modeling still require later explicit gates
+  data_acquisition_approval:
+    status: blocked
+    owner: TODO
+    required_before: Bioinformatics QC
+  qc_approval:
+    status: blocked
+    owner: TODO
+    required_before: Baseline analysis
+  baseline_analysis_approval:
+    status: blocked
+    owner: TODO
+    required_before: Modeling readiness review
+  modeling_readiness_approval:
+    status: blocked
+    owner: TODO
+    required_before: Any model training
+  prediction_task_approval:
+    label: 'Human Gate 2: Labels and Prediction Task Approval'
+    status: approved_with_restrictions
+    owner: TODO
+    required_before: Phase 3 baseline design for SLE diagnosis / case-control prediction
+      only
+    restrictions:
+    - No training until a baseline feature explicitly starts.
+    - No cell-level split.
+    - Patient- or donor-level split required.
+    - External validation remains TODO.
+    - Label provenance required before reporting results.
+    - Baseline results remain preliminary until labels are verified.
+artifacts:
+  master_spec: docs/00_master_spec.md
+  scientific_hypothesis: docs/01_scientific_hypothesis.md
+  dataset_feasibility_audit: docs/02_dataset_feasibility_audit.md
+  data_audit_config: configs/data_audit.yaml
+  dataset_eligibility_scoring: metadata/dataset_eligibility_scoring.yaml
+  patient_metadata_schema: metadata/patient_metadata_schema.yaml
+  label_dictionary: metadata/label_dictionary.yaml
+  label_availability_schema: metadata/label_availability_schema.yaml
+  external_validation_criteria: metadata/external_validation_criteria.yaml
+  geo_candidate_schema: metadata/geo_candidate_schema.yaml
+  cellxgene_candidate_schema: metadata/cellxgene_candidate_schema.yaml
+  backlog: state/backlog.yaml
+  current_feature: state/current_feature.md
+  dataset_catalog: metadata/dataset_catalog.csv
+  geo_candidate_table: reports/tables/geo_candidate_datasets.csv
+  cellxgene_candidate_table: reports/tables/cellxgene_candidate_datasets.csv
+  dataset_eligibility_scores: reports/tables/dataset_eligibility_scores.csv
+  manual_metadata_audit_summary: reports/tables/manual_metadata_audit_summary.csv
+  patient_metadata_audit_table: reports/tables/patient_metadata_audit.csv
+  label_availability_audit_table: reports/tables/label_availability_audit.csv
+  external_validation_candidates_table: reports/tables/external_validation_candidates.csv
+  rejected_dataset_log: reports/tables/rejected_dataset_log.csv
+  dataset_feasibility_table: reports/tables/dataset_feasibility_table.csv
+  final_dataset_feasibility_report: reports/final_dataset_feasibility_report.md
+  scientific_judge_report: state/judge_reports/P1-F011_scientific_judge_report.md
+  scientific_judge_dataset_review: reports/tables/scientific_judge_dataset_review.csv
+  bioinformatics_judge_report: state/judge_reports/P1-F012_bioinformatics_judge_report.md
+  bioinformatics_judge_review: reports/tables/bioinformatics_judge_review.csv
+  repair_queue: state/repair_queue.yaml
+  judge_repair_queue: reports/tables/judge_repair_queue.csv
+  final_dataset_feasibility_decision: reports/tables/final_dataset_feasibility_decision.csv
+  final_dataset_decision_report: state/judge_reports/P1-F014_final_dataset_decision_report.md
+  data_pipeline_plan: docs/06_data_pipeline_plan.md
+  data_pipeline_config: configs/data_pipeline.yaml
+  anndata_schema: metadata/anndata_schema.yaml
+  metadata_harmonization_schema: metadata/metadata_harmonization_schema.yaml
+  source_field_mapping: metadata/source_field_mapping.yaml
+  gene_identifier_policy: metadata/gene_identifier_policy.yaml
+  gene_mapping_report: reports/tables/gene_mapping_report.csv
+  qc_config: configs/qc.yaml
+  qc_summary_report: reports/tables/qc_summary.csv
+  qc_threshold_decisions: reports/tables/qc_threshold_decisions.csv
+  split_config: configs/splitting.yaml
+  split_manifest: reports/tables/split_manifest.csv
+  cohort_manifest_schema: metadata/cohort_manifest_schema.yaml
+  cohort_manifest: metadata/cohort_manifest.csv
+  dataset_access_plan: metadata/dataset_access_plan.yaml
+  dataset_access_plan_table: reports/tables/dataset_access_plan.csv
+  prediction_task_plan: docs/07_prediction_task_plan.md
+  prediction_task_schema: metadata/prediction_task_schema.yaml
+  prediction_task_candidates: reports/tables/prediction_task_candidates.csv
+  human_gate_2_checklist: state/human_gate_2_checklist.yaml
+  human_gate_2_decision: state/human_gate_2_decision.yaml
+  human_gate_2_decision_report: state/judge_reports/P2-F011_human_gate_2_decision_report.md
+  baseline_modeling_plan: docs/08_baseline_modeling_plan.md
+  baseline_modeling_config: configs/baseline_modeling.yaml
+  baseline_modeling_scaffold_script: scripts/10_baseline_modeling_scaffold.py
+  pseudobulk_config: configs/pseudobulk.yaml
+  pseudobulk_feature_schema: metadata/pseudobulk_feature_schema.yaml
+  pseudobulk_feature_manifest: reports/tables/pseudobulk_feature_manifest.csv
+  pseudobulk_design_utility: src/features/pseudobulk_design.py
+  logistic_regression_config: configs/logistic_regression_baseline.yaml
+  logistic_regression_results: reports/tables/logistic_regression_results.csv
+  logistic_regression_coefficients: reports/tables/logistic_regression_coefficients.csv
+  logistic_regression_scaffold: src/models/logistic_regression_baseline.py
+  tree_baseline_config: configs/tree_baseline.yaml
+  tree_baseline_results: reports/tables/tree_baseline_results.csv
+  tree_feature_importance: reports/tables/tree_feature_importance.csv
+  tree_baseline_scaffold: src/models/tree_baselines.py
+  cell_type_proportion_config: configs/cell_type_proportion_baseline.yaml
+  cell_type_proportion_features: reports/tables/cell_type_proportion_features.csv
+  cell_type_proportion_results: reports/tables/cell_type_proportion_results.csv
+  cell_type_proportion_scaffold: src/features/cell_type_proportions.py
+  evaluation_config: configs/evaluation.yaml
+  baseline_evaluation_results: reports/tables/baseline_evaluation_results.csv
+  baseline_prediction_manifest: reports/tables/baseline_prediction_manifest.csv
+  evaluation_protocol: src/evaluation/evaluation_protocol.py
+  calibration_config: configs/calibration.yaml
+  calibration_results: reports/tables/calibration_results.csv
+  reliability_diagram_manifest: reports/tables/reliability_diagram_manifest.csv
+  calibration_protocol: src/evaluation/calibration_protocol.py
+  baseline_scientific_judge_report: state/judge_reports/P3-F008_baseline_scientific_judge_report.md
+  baseline_scientific_judge_review: reports/tables/baseline_scientific_judge_review.csv
+  modeling_readiness_gate: state/modeling_readiness_gate.yaml
+  modeling_readiness_gate_report: state/judge_reports/P3-F009_modeling_readiness_gate_report.md
+  modeling_readiness_checklist: reports/tables/modeling_readiness_checklist.csv
+  dataset_label_verification_plan: docs/09_dataset_label_verification_plan.md
+  dataset_label_verification_schema: metadata/dataset_label_verification_schema.yaml
+  dataset_label_verification_checklist: reports/tables/dataset_label_verification_checklist.csv
+  training_permission_decision: state/training_permission_decision.yaml
+  training_permission_decision_report: state/judge_reports/P3-F011_training_permission_decision_report.md
+  dataset_selection_and_label_verification_plan: docs/10_dataset_selection_and_label_verification.md
+  dataset_selection_verification: reports/tables/dataset_selection_verification.csv
+  label_provenance_verification: reports/tables/label_provenance_verification.csv
+  patient_id_verification: reports/tables/patient_id_verification.csv
+  patient_id_label_provenance_evidence_plan: docs/11_patient_id_label_provenance_evidence_plan.md
+  patient_donor_id_evidence_plan: reports/tables/patient_donor_id_evidence_plan.csv
+  label_provenance_evidence_plan: reports/tables/label_provenance_evidence_plan.csv
+  controlled_metadata_inspection_plan: docs/12_controlled_metadata_inspection_plan.md
+  controlled_metadata_inspection_targets: reports/tables/controlled_metadata_inspection_targets.csv
+  metadata_inspection_evidence_log: reports/tables/metadata_inspection_evidence_log.csv
+  metadata_inspection_gate: state/metadata_inspection_gate.yaml
+  dataset_label_evidence_review: state/judge_reports/P3-F015_dataset_label_evidence_review.md
+  modeling_readiness_recheck: reports/tables/modeling_readiness_recheck.csv
+  modeling_readiness_recheck_report: state/judge_reports/P3-F016_modeling_readiness_recheck_report.md
+  training_permission_reevaluation: state/training_permission_reevaluation.yaml
+  training_permission_reevaluation_table: reports/tables/training_permission_reevaluation.csv
+  training_permission_reevaluation_report: state/judge_reports/P3-F017_training_permission_reevaluation_report.md
+  metadata_evidence_expansion_summary: reports/tables/metadata_evidence_expansion_summary.csv
+  metadata_evidence_expansion_report: state/judge_reports/P3-F018_metadata_evidence_expansion_report.md
+  dataset_strategy_decision: state/dataset_strategy_decision.yaml
+  dataset_strategy_options: reports/tables/dataset_strategy_options.csv
+  strategy_decision_blockers: reports/tables/strategy_decision_blockers.csv
+  dataset_strategy_decision_report: state/judge_reports/P3-F019_dataset_strategy_decision_report.md
+  audit_script: scripts/00_audit_datasets.py
+  geo_metadata_search_plan_script: scripts/01_geo_metadata_search_plan.py
+  cellxgene_metadata_plan_script: scripts/02_cellxgene_metadata_plan.py
+  dataset_eligibility_scoring_script: scripts/03_score_dataset_eligibility.py
+  patient_metadata_audit_script: scripts/04_patient_metadata_audit.py
+  label_availability_audit_script: scripts/05_label_availability_audit.py
+  external_validation_audit_script: scripts/06_external_validation_audit.py
+  dataset_feasibility_report_generator: scripts/07_generate_dataset_feasibility_report.py
+  phase2_pipeline_scaffold_script: scripts/08_phase2_pipeline_scaffold.py
+  anndata_schema_utility: src/data/anndata_schema.py
+  metadata_harmonization_utility: src/data/metadata_harmonization.py
+  gene_identifier_policy_utility: src/data/gene_identifier_policy.py
+  qc_policy_utility: src/qc/qc_policy.py
+  split_policy_utility: src/data/split_policy.py
+  leakage_checks_utility: src/data/leakage_checks.py
+  cohort_manifest_utility: src/data/cohort_manifest.py
+  dataset_access_plan_validator: scripts/09_validate_dataset_access_plan.py
+  metadata_schema_test: tests/test_metadata_schema.py
+  data_audit_config_test: tests/test_data_audit_config.py
+  audit_safety_test: tests/test_audit_script_no_invented_rows.py
+  geo_candidate_schema_test: tests/test_geo_candidate_schema.py
+  geo_metadata_search_plan_test: tests/test_geo_metadata_search_plan.py
+  cellxgene_candidate_schema_test: tests/test_cellxgene_candidate_schema.py
+  cellxgene_metadata_plan_test: tests/test_cellxgene_metadata_plan.py
+  dataset_eligibility_scoring_schema_test: tests/test_dataset_eligibility_scoring_schema.py
+  dataset_eligibility_scoring_test: tests/test_score_dataset_eligibility.py
+  patient_metadata_schema_test: tests/test_patient_metadata_schema.py
+  patient_metadata_audit_test: tests/test_patient_metadata_audit.py
+  label_dictionary_test: tests/test_label_dictionary.py
+  label_availability_schema_test: tests/test_label_availability_schema.py
+  label_availability_audit_test: tests/test_label_availability_audit.py
+  external_validation_criteria_test: tests/test_external_validation_criteria.py
+  external_validation_audit_test: tests/test_external_validation_audit.py
+  dataset_feasibility_report_template_test: tests/test_dataset_feasibility_report_template.py
+  rejected_dataset_log_test: tests/test_rejected_dataset_log.py
+  dataset_feasibility_report_generator_test: tests/test_generate_dataset_feasibility_report.py
+  manual_metadata_audit_summary_test: tests/test_manual_metadata_audit_summary.py
+  candidate_rows_pending_test: tests/test_candidate_rows_remain_pending.py
+  scientific_judge_dataset_review_test: tests/test_scientific_judge_dataset_review.py
+  bioinformatics_judge_review_test: tests/test_bioinformatics_judge_review.py
+  judge_repair_queue_test: tests/test_judge_repair_queue.py
+  final_dataset_decision_table_test: tests/test_final_dataset_decision_table.py
+  phase2_pipeline_config_test: tests/test_phase2_pipeline_config.py
+  phase2_no_modeling_or_downloads_test: tests/test_phase2_no_modeling_or_downloads.py
+  anndata_schema_contract_test: tests/test_anndata_schema_contract.py
+  metadata_harmonization_schema_test: tests/test_metadata_harmonization_schema.py
+  gene_identifier_policy_test: tests/test_gene_identifier_policy.py
+  qc_protocol_config_test: tests/test_qc_protocol_config.py
+  qc_policy_test: tests/test_qc_policy.py
+  patient_split_policy_test: tests/test_patient_split_policy.py
+  leakage_checks_test: tests/test_leakage_checks.py
+  cohort_manifest_schema_test: tests/test_cohort_manifest_schema.py
+  cohort_manifest_validation_test: tests/test_cohort_manifest_validation.py
+  dataset_access_plan_test: tests/test_dataset_access_plan.py
+  prediction_task_candidates_test: tests/test_prediction_task_candidates.py
+  human_gate_2_decision_test: tests/test_human_gate_2_decision.py
+  baseline_modeling_config_test: tests/test_baseline_modeling_config.py
+  baseline_modeling_scaffold_test: tests/test_baseline_modeling_scaffold.py
+  pseudobulk_feature_design_test: tests/test_pseudobulk_feature_design.py
+  logistic_regression_scaffold_test: tests/test_logistic_regression_baseline_scaffold.py
+  tree_baseline_scaffold_test: tests/test_tree_baseline_scaffold.py
+  cell_type_proportion_baseline_test: tests/test_cell_type_proportion_baseline.py
+  baseline_evaluation_protocol_test: tests/test_baseline_evaluation_protocol.py
+  calibration_metrics_scaffold_test: tests/test_calibration_metrics_scaffold.py
+  baseline_scientific_judge_review_test: tests/test_baseline_scientific_judge_review.py
+  modeling_readiness_gate_test: tests/test_modeling_readiness_gate.py
+  dataset_label_verification_plan_test: tests/test_dataset_label_verification_plan.py
+  training_permission_decision_test: tests/test_training_permission_decision.py
+  dataset_selection_label_verification_test: tests/test_dataset_selection_label_verification.py
+  patient_label_evidence_plan_test: tests/test_patient_label_evidence_plan.py
+  controlled_metadata_inspection_plan_test: tests/test_controlled_metadata_inspection_plan.py
+  dataset_label_evidence_review_test: tests/test_dataset_label_evidence_review.py
+  modeling_readiness_recheck_test: tests/test_modeling_readiness_recheck.py
+  training_permission_reevaluation_test: tests/test_training_permission_reevaluation.py
+  metadata_evidence_expansion_test: tests/test_metadata_evidence_expansion.py
+  dataset_strategy_decision_test: tests/test_dataset_strategy_decision.py
+last_updated: '2026-06-24'
+repository_reconciliation:
+  status: in_progress
+  branch: chore/reconcile-project-state
+  real_exploratory_work_completed: true
+  production_pipeline_ready: false
+  primary_exploratory_dataset:
+    accession: GSE174188
+    source: CELLxGENE Census
+    dataset_id: 218acb0f-9f2f-4f76-b90b-15a4b7c7f629
+    census_version: '2025-11-08'
+  exploratory_outputs:
+    phase1_notebook: notebooks/phase1_kaggle.ipynb
+    phase3_notebook: notebooks/phase3_kaggle.ipynb
+    embeddings: external_kaggle_dataset_lupus_embeddings
+  publication_claim_status: exploratory_not_publication_ready
+  next_required_work:
+  - reconcile_repository_documentation
+  - build_package_skeleton
+  - convert_phase1_notebook_to_tested_modules
+  - convert_phase2_embedding_extraction_to_tested_script
+  - convert_phase3_evaluation_to_leakage_safe_script
+  - add_baselines_and_cell_type_contribution
+  - audit_external_validation_candidates
+stage1_package_and_labels:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F001
+  scope: package skeleton and donor label extraction
+  completed:
+  - created src/lupusfm package skeleton
+  - implemented donor-id clinical label inference
+  - added fail-closed handling for unknown donor-id patterns
+  - added unit tests for label extraction
+  - added pyproject.toml package configuration
+  - removed tracked reports/.DS_Store and src/.DS_Store metadata
+  validation:
+    targeted_tests: python3 -m pytest tests/test_lupusfm_labels.py -q
+    expected_result: 19 passed
+  scientific_constraints:
+  - active flare discrimination only
+  - no future flare prediction claim
+  - no fully zero-shot clinical prediction claim
+  - no modeling or training in this feature
+  next_required_work:
+  - metadata schema utilities for primary CELLxGENE ingestion
+  - QC utilities with explicit gene-symbol handling
+  - manifest and reproducibility checks before embedding generation
+
+stage1_metadata_qc:
+  status: completed
+  branch: main
+  package_modules_added:
+  - src/lupusfm/data/metadata.py
+  - src/lupusfm/qc/mitochondrial.py
+  tests_added:
+  - tests/test_lupusfm_metadata.py
+  - tests/test_lupusfm_mitochondrial.py
+  targeted_validation: 49 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  notes:
+  - Metadata utilities require explicit donor_id columns and fail closed on
+    missing or unknown donor identifiers.
+  - Mitochondrial gene annotation requires an explicit gene-symbol column and
+    refuses silent fallback to adata.var_names.
+
+stage1_cohort_summary:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F003
+  package_modules_added:
+  - src/lupusfm/data/cohort.py
+  tests_added:
+  - tests/test_lupusfm_cohort.py
+  targeted_validation: 59 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  notes:
+  - Cohort summaries are derived from explicit adata.obs donor columns.
+  - Donor labels use the approved fail-closed donor-id rule.
+  - Utilities summarize donor and cell counts only; they do not filter cells,
+    extract embeddings, or train models.
+
+stage1_anndata_schema:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F004
+  package_modules_added:
+  - src/lupusfm/data/anndata_schema.py
+  tests_added:
+  - tests/test_lupusfm_anndata_schema.py
+  targeted_validation: 71 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  notes:
+  - AnnData schema validation is lightweight and does not import Scanpy or load real AnnData files.
+  - Schema checks validate obs/var columns, X/layer shapes, uns keys, and split-policy constraints.
+  - Cell-level split assignments are rejected before any modeling or embedding extraction is allowed.
+
+stage1_ingestion_readiness:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F005
+  package_modules_added:
+  - src/lupusfm/data/ingestion_readiness.py
+  tests_added:
+  - tests/test_lupusfm_ingestion_readiness.py
+  targeted_validation: 80 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  notes:
+  - Ingestion readiness combines schema, cohort, and explicit mitochondrial annotation checks.
+  - Readiness reports collect validation failures instead of starting downstream work.
+  - No files are loaded and no modeling, embedding extraction, filtering, or downloads are allowed.
+
+stage1_manifest_contract:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F006
+  package_modules_added:
+  - src/lupusfm/data/manifest.py
+  tests_added:
+  - tests/test_lupusfm_manifest.py
+  targeted_validation: 103 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  notes:
+  - Manifest utilities define a reproducibility contract before Stage 2 work.
+  - Dataset identifiers, metadata columns, expected counts, random seed, and output paths are validated.
+  - Downloads, embedding extraction, modeling, and training remain explicitly disabled.
+
+stage1_closeout_gate:
+  status: completed
+  branch: main
+  current_feature: STAGE1-F007
+  full_suite_validation: 499 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  notes:
+  - Stage 1 ingestion/QC package foundation is complete on main through STAGE1-F007.
+  - The closeout gate records that Stage 2 remained locked until a dedicated reproducible embedding-extraction plan was opened.
+  - No data download, Geneformer execution, embedding extraction, modeling, training, or external validation was allowed in the closeout feature.
+
+stage2_embedding_plan:
+  status: completed
+  branch: main
+  current_feature: STAGE2-F001
+  full_suite_validation: 499 passed
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  f003_complete: true
+  next_stage4_feature_ready: STAGE4-F004
+  f002_complete: true
+  next_stage4_feature_ready: STAGE4-F003
+  f001_complete: true
+  next_stage4_feature_ready: STAGE4-F002
+  notes:
+  - This feature defined Stage 2 inputs, outputs, provenance, leakage controls, and artifact restrictions.
+  - It did not download data, load AnnData files, execute Geneformer, tokenize cells, extract embeddings, train models, or add performance claims.
+  - Actual extraction remained blocked until a later approved feature validates manifest, ingestion readiness, model/tokenizer/vocabulary provenance, gene mapping, output paths, sampled cell IDs, and patient-level aggregation.
+
+stage2_embedding_config_contract:
+  status: completed
+  branch: main
+  current_feature: STAGE2-F002
+  full_suite_validation: 543 passed
+  package_modules_added:
+  - src/lupusfm/embeddings/config.py
+  tests_added:
+  - tests/test_lupusfm_embedding_config.py
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  notes:
+  - This feature validated Stage 2 config metadata without loading model runtimes, loading AnnData files, downloading data, tokenizing cells, extracting embeddings, modeling, training, or evaluating performance.
+  - The config contract requires approved dataset and Census identifiers, explicit donor and gene-symbol columns, gene-ID mapping policy, model/tokenizer/vocabulary sources, random seed, patient-level split and aggregation policies, and safe output paths.
+  - Actual extraction remained blocked until a later approved dry-run or execution feature validates manifest, ingestion readiness, provenance, sampled cell IDs, and runtime environment.
+
+stage2_embedding_provenance:
+  status: completed
+  branch: main
+  current_feature: STAGE2-F003
+  full_suite_validation: 591 passed
+  package_modules_added:
+  - src/lupusfm/embeddings/provenance.py
+  tests_added:
+  - tests/test_lupusfm_embedding_provenance.py
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  extraction_performed: false
+  notes:
+  - This feature records dataset, config, model, tokenizer, vocabulary, gene mapping, seed, split, aggregation, output, and hash-resolution provenance requirements.
+  - Runtime hashes may remain pending at this stage, but recorded hashes must be valid sha256 digests and fake pending hashes are rejected.
+  - Actual extraction remained blocked until a later approved dry-run or execution feature validates manifest, ingestion readiness, provenance, sampled cell IDs, and runtime environment.
+
+stage2_dry_run_readiness:
+  status: completed
+  branch: main
+  current_feature: STAGE2-F004
+  full_suite_validation: 601 passed
+  package_modules_added:
+  - src/lupusfm/embeddings/readiness.py
+  tests_added:
+  - tests/test_lupusfm_embedding_readiness.py
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  extraction_performed: false
+  notes:
+  - This feature combines the Stage 1 ingestion manifest, ingestion-readiness report, Stage 2 embedding config, and Stage 2 provenance manifest.
+  - Dry-run readiness collects failures and does not start runtime extraction work.
+  - Actual extraction remains blocked until the dry-run gate passes and a later approved execution feature explicitly allows runtime extraction.
+
+stage2_geneformer_extraction_runner:
+  status: completed
+  branch: main
+  current_feature: STAGE2-F005
+  full_suite_validation: 620 passed
+  package_modules_added:
+  - src/lupusfm/embeddings/extraction.py
+  tests_added:
+  - tests/test_lupusfm_geneformer_extraction_runner.py
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: permission_gated_only
+  geneformer_execution_allowed: permission_gated_only
+  tokenizer_execution_allowed: permission_gated_only
+  anndata_loading_allowed: permission_gated_only
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  extraction_performed: false
+  notes:
+  - The package runner requires the dry-run readiness gate to pass before runtime callbacks can be called.
+  - Downloads, modeling, training, external validation, and performance claims remain prohibited.
+  - Runtime actions are dependency-injected callbacks and are not imported or executed by package import.
+  - No real extraction outputs were committed by this feature.
+
+stage2_closeout:
+  status: completed
+  branch: chore/stage2-closeout
+  current_feature: STAGE2-CLOSEOUT
+  scope: mark Stage 2 package-side embedding extraction infrastructure complete
+  package_modules_added: []
+  tests_added: []
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  extraction_performed: false
+  notes:
+  - Stage 2 completed the package-side extraction plan, config, provenance, dry-run readiness, and permission-gated runner.
+  - No real Geneformer extraction was performed during Stage 2.
+  - No embedding artifacts, model artifacts, model training, external validation, or performance claims were added.
+  - The next stage should define patient-level aggregation, leakage-safe evaluation design, and baselines before any modeling is permitted.
+
+
+stage3_embedding_artifact_schema:
+  status: completed
+  branch: feat/stage3-embedding-artifact-schema
+  current_feature: STAGE3-F001
+  scope: define metadata-only embedding artifact schema contract for future patient-level analysis
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed: false
+  notes:
+  - Defines future embedding artifact metadata expectations without loading real artifacts.
+  - Requires donor/patient split level and rejects cell-level split policy.
+  - Rejects model/training artifact-like outputs and forbidden modeling/training flags.
+  - Uses fake-data tests only.
+
+
+stage3_patient_aggregation_design:
+  status: completed
+  branch: feat/stage3-patient-aggregation-design
+  current_feature: STAGE3-F002
+  scope: define fake-data patient-level aggregation contract from cell embeddings to donor embeddings
+  default_aggregation: mean_pool_per_donor
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed: false
+  notes:
+  - Defines donor-level mean pooling over fake cell embedding records only.
+  - Requires donor IDs, cell IDs, finite numeric embeddings, and consistent dimensions.
+  - Rejects cell-level split policy and forbidden modeling/training/runtime flags.
+  - Produces donor-level embedding records without training or evaluation.
+
+
+stage3_leakage_safe_splits:
+  status: completed
+  branch: feat/stage3-leakage-safe-splits
+  current_feature: STAGE3-F003
+  scope: define fake-data leakage-safe split utilities at donor/patient level only
+  allowed_methods:
+  - leave_one_donor_out
+  - group_k_fold
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed: false
+  global_preprocessing_allowed: false
+  scaler_outside_fold_allowed: false
+  model_fitting_allowed: false
+  notes:
+  - Defines leave-one-donor-out and deterministic GroupKFold-like fake split utilities.
+  - Validates donor-level train/test disjointness and held-out donor coverage.
+  - Rejects cell-level split policy, global preprocessing, scaler fitting outside fold, and model fitting.
+  - Does not train, evaluate, or report performance.
+
+
+stage3_evaluation_protocol_scaffold:
+  status: completed
+  branch: feat/stage3-evaluation-protocol-scaffold
+  current_feature: STAGE3-F004
+  scope: define metadata-only patient-level evaluation protocol scaffold
+  planned_tasks:
+  - flare_vs_managed
+  - flare_vs_healthy
+  - flare_vs_nonflare
+  required_primary_metrics:
+  - auroc
+  - auprc
+  - balanced_accuracy
+  uncertainty_required: true
+  permutation_required: true
+  baseline_comparison_required: true
+  confounder_controls_required: true
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed: false
+  metric_computation_allowed: false
+  model_fitting_allowed: false
+  notes:
+  - Defines planned patient-level metrics without computing metrics.
+  - Requires uncertainty and permutation controls before future performance reporting.
+  - Requires baseline comparison and confounder controls.
+  - Rejects cell-level split policy, metric computation, model fitting, and performance claims.
+
+
+stage3_baseline_control_plan:
+  status: completed
+  branch: feat/stage3-baseline-control-plan
+  current_feature: STAGE3-F005
+  scope: define metadata-only baseline and control comparison plan
+  candidate_representation: frozen_geneformer_donor_embedding
+  required_baseline_families:
+  - pseudobulk_expression
+  - cell_type_proportion
+  - donor_cell_count
+  - metadata_confounder_control
+  - label_permutation_control
+  same_splits_as_candidate_required: true
+  fold_internal_preprocessing_required: true
+  baseline_comparison_required: true
+  confounder_controls_required: true
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  feature_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed: false
+  metric_computation_allowed: false
+  model_fitting_allowed: false
+  notes:
+  - Defines planned baseline/control families without extracting features.
+  - Requires pseudobulk, cell-type proportion, donor cell-count, metadata confounder, and label permutation controls.
+  - Requires same donor/patient splits as the candidate representation.
+  - Rejects cell-level features, feature extraction, metric computation, model fitting, and performance claims.
+
+
+stage3_modeling_readiness_gate:
+  status: completed
+  branch: feat/stage3-modeling-readiness-gate
+  current_feature: STAGE3-F006
+  scope: define final metadata-only Stage 3 readiness gate
+  required_completed_components:
+  - embedding_artifact_schema
+  - patient_aggregation_design
+  - leakage_safe_splits
+  - evaluation_protocol_scaffold
+  - baseline_control_plan
+  readiness_decision: approved_for_real_data_validation
+  next_allowed_step:
+  - real_embedding_artifact_validation
+  - controlled_embedding_extraction
+  real_data_validation_allowed_next_stage: true
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  feature_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed_in_gate: false
+  metric_computation_allowed: false
+  model_fitting_allowed: false
+  notes:
+  - Verifies Stage 3 scaffold components before the real-data validation path.
+  - Allows only the next-stage decision to proceed toward real embedding artifact validation or controlled extraction.
+  - Does not load artifacts, compute metrics, fit models, train, validate externally, or add performance claims.
+
+
+stage3_closeout:
+  status: completed
+  branch: chore/stage3-closeout
+  current_feature: STAGE3-CLOSEOUT
+  scope: close Stage 3 after F001-F006 readiness scaffolds
+  completed_features:
+  - STAGE3-F001 embedding artifact schema
+  - STAGE3-F002 patient-level aggregation design
+  - STAGE3-F003 leakage-safe split utilities
+  - STAGE3-F004 evaluation protocol scaffold
+  - STAGE3-F005 baseline/control plan
+  - STAGE3-F006 modeling readiness gate
+  stage3_complete: true
+  next_phase: Stage 4
+  next_feature: STAGE4-F001
+  next_feature_name: Real embedding artifact validation
+  real_data_validation_allowed_next_stage: true
+  modeling_allowed: false
+  training_allowed: false
+  downloads_allowed: false
+  embedding_extraction_allowed: false
+  feature_extraction_allowed: false
+  geneformer_execution_allowed: false
+  tokenizer_execution_allowed: false
+  anndata_loading_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  real_artifact_loading_allowed_in_closeout: false
+  metric_computation_allowed: false
+  model_fitting_allowed: false
+  notes:
+  - Stage 3 is complete after the modeling readiness gate.
+  - Stage 4 should begin with real embedding artifact validation or controlled embedding extraction.
+  - This closeout does not load real data, execute Geneformer, fit models, compute metrics, or add performance claims.
+
+stage4_planning:
+  status: completed
+  current_phase: Stage 4
+  current_feature: STAGE4-F006
+  current_feature_name: Stage 4 final closeout and modeling handoff decision
+  branch: feat/stage4-final-closeout-modeling-handoff-decision
+  completed_feature: STAGE4-F006
+  completed_feature_name: Stage 4 final closeout and modeling handoff decision
+  current_stage4_feature: STAGE4-F006
+  stage4_closeout_status: completed
+  handoff_decision: separate_modeling_stage_required
+  next_phase: separate_modeling_stage_requires_explicit_approval
+  next_phase_name: Modeling stage planning requires explicit approval
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  notes:
+  - Stage 4 is closed out.
+  - Real artifact metadata, aggregation planning, split manifest validation, evaluation input readiness, and pre-modeling audit gates are complete.
+  - Modeling is not authorized in Stage 4.
+  - Any modeling work requires a separate stage, new branch, explicit approval, and preserved donor-level leakage controls.
+
+stage4_real_embedding_artifact_validation:
+  status: completed
+  branch: chore/stage4-f001-closeout
+  current_feature: STAGE4-F001
+  feature_name: Real embedding artifact validation
+  closeout_feature: STAGE4-F001-CLOSEOUT
+  next_feature: STAGE4-F002
+  next_feature_name: Real donor-level aggregation run plan
+  scope: validate safe metadata for a local real embedding artifact without committing it
+  existing_local_artifact_path: external_local_directory_not_committed
+  manifest_status: completed_observed_npy_directory_metadata_without_payload_loading
+  observed_artifact_format: npy_directory
+  observed_record_level: donor
+  observed_directory_file_suffix: .npy
+  observed_file_count: 261
+  observed_total_size_bytes: 360839808
+  observed_total_size_mb: 344.12
+  observed_all_files_same_size: true
+  observed_min_file_size_bytes: 1382528
+  observed_max_file_size_bytes: 1382528
+  observed_filename_category_counts:
+    flare_like: 14
+    healthy_hc_like: 48
+    healthy_igtb_like: 50
+    managed_sle_numeric_like: 148
+    control_like: 1
+  allowed_actions:
+  - validate local artifact path string
+  - check file existence
+  - check file size metadata
+  - count top-level .npy files in a local directory
+  - summarize filename categories without opening embedding payloads
+  - compute sha256 checksum only when explicitly requested
+  - validate safe manifest fields
+  - record audit metadata without storing embeddings
+  prohibited_actions:
+  - commit real embedding artifacts
+  - commit model artifacts
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - parse embedding payload tables
+  - load .npy embedding payloads
+  - aggregate real embeddings
+  - fit scalers
+  - fit models
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  artifact_commit_allowed: false
+  large_artifact_commit_allowed: false
+  local_path_required_from_user: true
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+
+stage4_real_donor_aggregation_run_plan:
+  status: completed
+  branch: chore/stage4-f002-closeout
+  current_feature: STAGE4-F002
+  feature_name: Real donor-level aggregation run plan
+  closeout_feature: STAGE4-F002-CLOSEOUT
+  next_feature: STAGE4-F003
+  next_feature_name: Real leakage-safe split manifest validation
+  scope: define a safe run plan for the observed donor-level npy_directory artifact without executing aggregation
+  prerequisite_feature: STAGE4-F001
+  prerequisite_status: completed
+  input_artifact_format: npy_directory
+  input_artifact_layout: directory
+  input_record_level: donor
+  output_record_level: donor
+  split_level: donor
+  aggregation_strategy: identity_donor_embedding_directory
+  expected_donor_file_count: 261
+  observed_donor_file_count: 261
+  observed_total_size_bytes: 360839808
+  observed_all_files_same_size: true
+  filename_category_counts:
+    flare_like: 14
+    healthy_hc_like: 48
+    healthy_igtb_like: 50
+    managed_sle_numeric_like: 148
+    control_like: 1
+  requires_cell_to_donor_pooling: false
+  requires_payload_loading: false
+  requires_npy_payload_loading: false
+  requires_real_aggregation_execution: false
+  allowed_actions:
+  - define donor-level aggregation run plan metadata
+  - assert observed donor-level artifact count compatibility
+  - assert filename category counts sum to observed donor file count
+  - preserve identity strategy for already donor-level embeddings
+  - record next required validation gates
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_metric_computation: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+
+stage4_real_leakage_safe_split_manifest_validation:
+  status: completed
+  branch: chore/stage4-f003-closeout
+  current_feature: STAGE4-F003
+  feature_name: Real leakage-safe split manifest validation
+  closeout_feature: STAGE4-F003-CLOSEOUT
+  next_feature: STAGE4-F004
+  next_feature_name: Real evaluation input readiness validation
+  scope: define and validate donor-level split manifest metadata without loading embeddings or computing metrics
+  prerequisite_feature: STAGE4-F002
+  prerequisite_status: completed
+  input_artifact_format: npy_directory
+  input_record_level: donor
+  required_split_level: donor
+  allowed_split_names:
+  - train
+  - validation
+  - test
+  allowed_label_groups:
+  - flare_like
+  - healthy_hc_like
+  - healthy_igtb_like
+  - managed_sle_numeric_like
+  - control_like
+  expected_real_donor_count: 261
+  leakage_controls:
+  - donor_id values must be unique
+  - donor_id values must not appear in multiple splits
+  - split manifest must be donor-level
+  - cell-level split columns are prohibited
+  allowed_actions:
+  - define donor-level split manifest validation schema
+  - validate unique donor IDs across splits
+  - validate required split names
+  - validate label group names
+  - summarize split and label counts without computing model metrics
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  allow_cell_level_splits: false
+  allow_duplicate_donors_across_splits: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_metric_computation: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+
+stage4_real_evaluation_input_readiness_validation:
+  status: completed
+  branch: chore/stage4-f004-closeout
+  current_feature: STAGE4-F004
+  feature_name: Real evaluation input readiness validation
+  closeout_feature: STAGE4-F004-CLOSEOUT
+  next_feature: STAGE4-F005
+  next_feature_name: Real pre-modeling audit gate
+  scope: validate metadata-only readiness for connecting donor-level artifact, aggregation plan, and split manifest without materializing inputs
+  prerequisite_features:
+  - STAGE4-F001
+  - STAGE4-F002
+  - STAGE4-F003
+  prerequisite_status: completed
+  artifact_validation_status: completed
+  aggregation_plan_status: completed
+  split_manifest_validation_status: completed
+  input_artifact_format: npy_directory
+  input_artifact_layout: directory
+  input_record_level: donor
+  aggregation_strategy: identity_donor_embedding_directory
+  split_level: donor
+  expected_real_donor_count: 261
+  observed_real_donor_count: 261
+  required_readiness_gates:
+  - upstream real artifact validation completed
+  - donor aggregation run plan completed
+  - leakage-safe donor split manifest validation completed
+  - expected donor count matches observed donor count
+  - no cell-level split assignments
+  - no prediction or metric columns
+  allowed_actions:
+  - define evaluation input readiness metadata contract
+  - validate completed upstream Stage 4 metadata contracts
+  - validate donor count compatibility
+  - validate leakage-safety gates remain enabled
+  - summarize readiness gates without materializing evaluation inputs
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_cell_level_splits: false
+  allow_duplicate_donors_across_splits: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_real_aggregation_execution: false
+  allow_split_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  f004_complete: true
+  next_stage4_feature_ready: STAGE4-F005
+
+stage4_real_pre_modeling_audit_gate:
+  status: completed
+  branch: chore/stage4-f005-closeout
+  current_feature: STAGE4-F005
+  feature_name: Real pre-modeling audit gate
+  closeout_feature: STAGE4-F005-CLOSEOUT
+  closeout_status: completed
+  scope: validate a metadata-only pre-modeling audit gate without granting modeling permission
+  completed_upstream_features:
+  - STAGE4-F001
+  - STAGE4-F002
+  - STAGE4-F003
+  - STAGE4-F004
+  upstream_status: completed
+  artifact_validation_status: completed
+  aggregation_plan_status: completed
+  split_manifest_validation_status: completed
+  evaluation_input_readiness_status: completed
+  audit_outcome: review_required
+  next_feature: STAGE4-F006
+  next_feature_name: Stage 4 final closeout and modeling handoff decision
+  required_review_gates:
+  - human review before modeling
+  - explicit modeling permission
+  - reproducibility review
+  - leakage review
+  - artifact integrity review
+  - scope review
+  allowed_actions:
+  - define pre-modeling audit gate metadata contract
+  - validate completed upstream Stage 4 metadata contracts
+  - verify all pre-modeling review gates remain required
+  - summarize audit status without granting modeling permission
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_human_review_before_modeling: true
+  requires_explicit_modeling_permission: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  closeout_notes:
+  - F005 pre-modeling audit gate completed as metadata-only validation.
+  - Modeling remains blocked.
+  - Stage 4-F006 is required before any modeling handoff decision.
+
+stage4_final_closeout_and_modeling_handoff_decision:
+  status: completed
+  branch: feat/stage4-final-closeout-modeling-handoff-decision
+  current_feature: STAGE4-F006
+  feature_name: Stage 4 final closeout and modeling handoff decision
+  stage4_closeout_status: completed
+  decision_status: completed
+  handoff_decision: separate_modeling_stage_required
+  modeling_handoff_scope: planning_only_no_modeling_authorization
+  completed_stage4_features:
+  - STAGE4-F001
+  - STAGE4-F002
+  - STAGE4-F003
+  - STAGE4-F004
+  - STAGE4-F005
+  upstream_status: completed
+  artifact_validation_status: completed
+  aggregation_plan_status: completed
+  split_manifest_validation_status: completed
+  evaluation_input_readiness_status: completed
+  pre_modeling_audit_status: completed
+  next_phase: separate_modeling_stage_requires_explicit_approval
+  next_phase_name: Modeling stage planning requires explicit approval
+  required_handoff_gates:
+  - separate modeling stage
+  - new branch for modeling work
+  - explicit modeling approval
+  - human review before modeling
+  - reproducibility review
+  - leakage review
+  - artifact integrity review
+  - scope review
+  allowed_actions:
+  - record Stage 4 final closeout
+  - record metadata-only modeling handoff decision
+  - require a separate modeling stage before any model fitting
+  - preserve all pre-modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_separate_modeling_stage: true
+  requires_new_branch_for_modeling: true
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+stage4_project_snapshot_at_closeout:
+  status: stage4_complete
+  current_phase: Stage 4
+  current_phase_name: Stage 4 - Final closeout and modeling handoff decision
+  current_feature: STAGE4-F006
+  handoff_decision: separate_modeling_stage_required
+  modeling_readiness: blocked_pending_separate_modeling_stage_approval
+  modeling_allowed: false
+  training_allowed: false
+  performance_claims_allowed: false
+stage5_modeling_approval_scaffold:
+  status: completed
+  branch: chore/stage5-f001-closeout
+  current_stage: Stage 5
+  stage_name: Stage 5 - Modeling stage approval and execution planning
+  current_feature: STAGE5-F001
+  feature_name: Modeling approval scaffold
+  closeout_feature: STAGE5-F001-CLOSEOUT
+  closeout_status: completed
+  next_feature: STAGE5-F002
+  next_feature_name: Modeling execution protocol scaffold
+  scope: approval_scaffold_only_no_modeling_execution
+  upstream_stage4_status: completed
+  upstream_handoff_decision: separate_modeling_stage_required
+  completed_stage4_features:
+  - STAGE4-F001
+  - STAGE4-F002
+  - STAGE4-F003
+  - STAGE4-F004
+  - STAGE4-F005
+  - STAGE4-F006
+  approval_status: pending
+  modeling_authorization_status: not_granted
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  allowed_actions:
+  - record Stage 5 modeling approval scaffold
+  - document explicit approval requirements before modeling
+  - document donor-level leakage controls
+  - preserve runtime and modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_protocol_before_execution: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+stage5_modeling_execution_protocol_scaffold:
+  status: completed
+  branch: chore/stage5-f002-closeout
+  current_stage: Stage 5
+  stage_name: Stage 5 - Modeling stage approval and execution planning
+  current_feature: STAGE5-F002
+  feature_name: Modeling execution protocol scaffold
+  closeout_feature: STAGE5-F002-CLOSEOUT
+  closeout_status: completed
+  scope: execution_protocol_scaffold_only_no_modeling_execution
+  previous_feature: STAGE5-F001
+  previous_feature_status: completed
+  completed_stage5_features:
+  - STAGE5-F001
+  next_feature: STAGE5-F003
+  next_feature_name: Donor-level execution contract approval
+  protocol_status: in_progress
+  approval_status: pending
+  modeling_authorization_status: not_granted
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  protocol_record_level: donor
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  artifact_loading_policy: prohibited_until_explicit_gate
+  input_materialization_policy: prohibited_until_explicit_gate
+  label_creation_policy: prohibited_until_explicit_gate
+  aggregation_execution_policy: prohibited_until_explicit_gate
+  modeling_execution_policy: prohibited_until_explicit_gate
+  prediction_generation_policy: prohibited_until_explicit_gate
+  metric_computation_policy: future_only_no_computation
+  external_validation_policy: prohibited_until_explicit_gate
+  performance_claim_policy: prohibited_until_explicit_gate
+  allowed_actions:
+  - record Stage 5 modeling execution protocol scaffold
+  - document future execution boundaries
+  - document donor-level protocol requirements
+  - preserve runtime and modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_protocol_before_execution: true
+  requires_separate_execution_gate: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+stage5_donor_level_execution_contract_approval:
+  status: completed
+  branch: chore/stage5-f003-closeout
+  current_stage: Stage 5
+  stage_name: Stage 5 - Modeling stage approval and execution planning
+  current_feature: STAGE5-F003
+  feature_name: Donor-level execution contract approval
+  closeout_feature: STAGE5-F003-CLOSEOUT
+  closeout_status: completed
+  scope: donor_level_contract_approval_only_no_execution
+  completed_stage5_features:
+  - STAGE5-F001
+  - STAGE5-F002
+  previous_protocol_feature: STAGE5-F002
+  previous_protocol_status: completed
+  next_feature: STAGE5-F004
+  next_feature_name: Pre-execution audit gate
+  contract_status: in_progress
+  contract_approval_decision: pending_contract_review
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  contract_record_level: donor
+  contract_split_level: donor
+  contract_label_level: donor
+  contract_prediction_level: donor
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  contract_scope_policy: contract_review_only_no_execution
+  artifact_loading_policy: prohibited_until_explicit_gate
+  input_materialization_policy: prohibited_until_explicit_gate
+  label_creation_policy: prohibited_until_explicit_gate
+  split_execution_policy: prohibited_until_explicit_gate
+  aggregation_execution_policy: prohibited_until_explicit_gate
+  modeling_execution_policy: prohibited_until_explicit_gate
+  prediction_generation_policy: prohibited_until_explicit_gate
+  metric_computation_policy: future_only_no_computation
+  external_validation_policy: prohibited_until_explicit_gate
+  performance_claim_policy: prohibited_until_explicit_gate
+  allowed_actions:
+  - record Stage 5 donor-level execution contract approval
+  - document donor-level contract constraints
+  - document future pre-execution audit requirement
+  - preserve runtime and modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_protocol_before_execution: true
+  requires_separate_execution_gate: true
+  requires_pre_execution_audit: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+stage5_pre_execution_audit_gate:
+  status: completed
+  branch: chore/stage5-f004-closeout
+  current_stage: Stage 5
+  stage_name: Stage 5 - Modeling stage approval and execution planning
+  current_feature: STAGE5-F004
+  feature_name: Pre-execution audit gate
+  closeout_feature: STAGE5-F004-CLOSEOUT
+  closeout_status: completed
+  scope: pre_execution_audit_only_no_execution
+  completed_stage5_features:
+  - STAGE5-F001
+  - STAGE5-F002
+  - STAGE5-F003
+  previous_contract_feature: STAGE5-F003
+  previous_contract_status: completed
+  next_feature: STAGE5-F005
+  next_feature_name: Final Stage 5 modeling handoff decision
+  audit_status: in_progress
+  audit_outcome: review_required
+  modeling_authorization_status: not_granted
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  audit_record_level: donor
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  audit_scope_policy: audit_only_no_execution
+  artifact_loading_policy: prohibited_until_explicit_gate
+  input_materialization_policy: prohibited_until_explicit_gate
+  label_creation_policy: prohibited_until_explicit_gate
+  split_execution_policy: prohibited_until_explicit_gate
+  aggregation_execution_policy: prohibited_until_explicit_gate
+  modeling_execution_policy: prohibited_until_explicit_gate
+  prediction_generation_policy: prohibited_until_explicit_gate
+  metric_computation_policy: future_only_no_computation
+  external_validation_policy: prohibited_until_explicit_gate
+  performance_claim_policy: prohibited_until_explicit_gate
+  allowed_actions:
+  - record Stage 5 pre-execution audit gate
+  - document completion of prior Stage 5 planning gates
+  - document final handoff decision requirement
+  - preserve runtime and modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_protocol_before_execution: true
+  requires_separate_execution_gate: true
+  requires_final_stage5_handoff_decision: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+stage5_final_modeling_handoff_decision:
+  status: completed
+  branch: chore/stage5-final-closeout
+  current_stage: Stage 5
+  stage_name: Stage 5 - Modeling stage approval and execution planning
+  current_feature: STAGE5-F005
+  feature_name: Final Stage 5 modeling handoff decision
+  closeout_feature: STAGE5-FINAL-CLOSEOUT
+  closeout_status: completed
+  scope: final_handoff_decision_only_no_execution
+  completed_stage5_features:
+  - STAGE5-F001
+  - STAGE5-F002
+  - STAGE5-F003
+  - STAGE5-F004
+  previous_audit_feature: STAGE5-F004
+  previous_audit_status: completed
+  handoff_status: in_progress
+  handoff_decision: separate_modeling_execution_stage_required
+  modeling_authorization_status: stage5_does_not_authorize_modeling
+  future_modeling_policy: future_only_explicit_execution_stage
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  handoff_record_level: donor
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  handoff_scope_policy: handoff_only_no_execution
+  artifact_loading_policy: prohibited_until_explicit_gate
+  input_materialization_policy: prohibited_until_explicit_gate
+  label_creation_policy: prohibited_until_explicit_gate
+  split_execution_policy: prohibited_until_explicit_gate
+  aggregation_execution_policy: prohibited_until_explicit_gate
+  modeling_execution_policy: prohibited_until_explicit_gate
+  prediction_generation_policy: prohibited_until_explicit_gate
+  metric_computation_policy: future_only_no_computation
+  external_validation_policy: prohibited_until_explicit_gate
+  performance_claim_policy: prohibited_until_explicit_gate
+  allowed_actions:
+  - record final Stage 5 modeling handoff decision
+  - document that separate modeling execution stage is required
+  - document that Stage 5 does not authorize modeling execution
+  - preserve runtime and modeling safety locks
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+  requires_explicit_modeling_approval: true
+  requires_separate_execution_stage: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_protocol_before_execution: true
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+
+
+stage5_completed_project_snapshot_for_legacy_tests:
+  status: stage5_complete
+  current_phase: Stage 5
+  current_phase_name: Stage 5 - Complete
+  current_feature: STAGE5-COMPLETE
+  modeling_readiness: blocked_pending_separate_modeling_execution_stage
+  purpose: retained_historical_snapshot_only
+  superseded_by: Stage 6 - Controlled donor-level modeling execution
+
+stage6_modeling_execution_authorization:
+  status: completed
+  branch: feat/stage6-controlled-donor-level-modeling-execution
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F001
+  feature_name: Modeling execution authorization
+closeout_feature: STAGE6-F001-CLOSEOUT
+closeout_status: completed
+closeout_branch: chore/stage6-f001-closeout
+closeout_scope: closeout_only_no_runtime_execution
+completed_stage6_features:
+- STAGE6-F001
+next_feature_status: ready
+  stage6_status: in_progress
+  authorization_status: in_progress
+  authorization_decision: stage6_controlled_execution_path_authorized
+  modeling_authorization_status: stage6_opened_no_runtime_execution
+  upstream_project_status: stage5_complete
+  upstream_current_phase: Stage 5
+  upstream_current_phase_name: Stage 5 - Complete
+  upstream_current_feature: STAGE5-COMPLETE
+  upstream_stage5_status: completed
+  upstream_handoff_decision: separate_modeling_execution_stage_required
+  completed_stage5_features:
+  - STAGE5-F001
+  - STAGE5-F002
+  - STAGE5-F003
+  - STAGE5-F004
+  - STAGE5-F005
+  previous_stage5_feature: STAGE5-F005
+  previous_stage5_closeout_status: completed
+  stage6_execution_policy: controlled_donor_level_execution_in_stage6
+  additional_execution_stage_policy: no_additional_execution_stage_required
+  scope: authorization_only_no_runtime_execution
+  first_runtime_execution_feature: STAGE6-F005
+  next_feature: STAGE6-F002
+  next_feature_name: Real artifact access and integrity gate
+  remaining_stage6_features:
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  - STAGE6-F005
+  - STAGE6-F006
+  - STAGE6-F007
+  handoff_record_level: donor
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  artifact_loading_policy: prohibited_until_explicit_stage6_gate
+  input_materialization_policy: prohibited_until_explicit_stage6_gate
+  label_creation_policy: prohibited_until_explicit_stage6_gate
+  split_execution_policy: prohibited_until_explicit_stage6_gate
+  aggregation_execution_policy: prohibited_until_explicit_stage6_gate
+  modeling_execution_policy: prohibited_until_explicit_stage6_gate
+  prediction_generation_policy: prohibited_until_explicit_stage6_gate
+  metric_computation_policy: prohibited_until_explicit_stage6_gate
+  external_validation_policy: prohibited_until_explicit_stage6_gate
+  performance_claim_policy: prohibited_until_explicit_stage6_gate
+  requires_explicit_modeling_approval: true
+  requires_human_review_before_modeling: true
+  requires_reproducibility_review: true
+  requires_leakage_review: true
+  requires_artifact_integrity_review: true
+  requires_scope_review: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_protocol_before_execution: true
+  requires_no_additional_execution_stage: true
+  permits_stage6_controlled_execution_path: true
+  stage7_required: false
+  separate_stage7_required: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - open Stage 6 as the controlled donor-level execution stage
+  - record that Stage 6 contains execution and no Stage 7 is required
+  - record that runtime execution remains blocked until explicit Stage 6 gates
+  - preserve donor-level and leakage-control requirements
+  - preserve no-large-artifact-commit policy
+  prohibited_actions:
+  - commit real embedding artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+
+
+stage6_f001_closeout_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F002
+  modeling_readiness: stage6_f001_complete_pending_real_artifact_access_integrity_gate
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F002 - Real artifact access and integrity gate
+
+stage6_f002_closeout_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F002
+  modeling_readiness: stage6_f002_real_artifact_access_integrity_gate_in_progress
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F003 - Donor-level input materialization gate
+
+stage6_real_artifact_access_integrity_gate:
+  status: completed
+  branch: feat/stage6-real-artifact-access-integrity-gate
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F002
+  feature_name: Real artifact access and integrity gate
+closeout_feature: STAGE6-F002-CLOSEOUT
+closeout_status: completed
+closeout_branch: chore/stage6-f002-closeout
+closeout_scope: closeout_only_no_runtime_execution
+pre_closeout_status: in_progress
+completed_stage6_features_after_closeout:
+- STAGE6-F001
+- STAGE6-F002
+next_feature_status: ready
+  stage6_status: in_progress
+  gate_status: completed
+  gate_decision: metadata_access_integrity_gate_opened
+  previous_feature: STAGE6-F001
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  upstream_authorization_decision: stage6_controlled_execution_path_authorized
+  scope: artifact_access_integrity_contract_only_no_runtime_execution
+  access_scope: path_schema_permission_contract_only
+  integrity_scope: metadata_integrity_contract_only
+  artifact_family: geneformer_donor_embeddings
+  expected_artifact_format: npy_directory
+  expected_artifact_layout: one_file_per_donor_embedding
+  expected_record_level: donor
+  expected_split_level: donor
+  expected_artifact_location_policy: external_local_or_remote_path_not_committed
+  required_integrity_contracts:
+  - path_schema_contract
+  - permission_contract
+  - record_level_contract
+  - artifact_format_contract
+  - no_large_artifact_commit_contract
+  deferred_real_artifact_checks:
+  - filesystem_existence_check
+  - file_count_scan
+  - checksum_calculation
+  - npy_payload_loading
+  - embedding_vector_parsing
+  - shape_validation_from_payload
+  next_feature: STAGE6-F003
+  next_feature_name: Donor-level input materialization gate
+  first_runtime_execution_feature: STAGE6-F005
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  artifact_loading_policy: prohibited_until_explicit_stage6_gate
+  input_materialization_policy: prohibited_until_explicit_stage6_gate
+  label_creation_policy: prohibited_until_explicit_stage6_gate
+  split_execution_policy: prohibited_until_explicit_stage6_gate
+  aggregation_execution_policy: prohibited_until_explicit_stage6_gate
+  modeling_execution_policy: prohibited_until_explicit_stage6_gate
+  prediction_generation_policy: prohibited_until_explicit_stage6_gate
+  metric_computation_policy: prohibited_until_explicit_stage6_gate
+  external_validation_policy: prohibited_until_explicit_stage6_gate
+  performance_claim_policy: prohibited_until_explicit_stage6_gate
+  requires_completed_stage6_f001: true
+  requires_artifact_integrity_review: true
+  requires_permission_contract: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_large_artifact_commit: true
+  requires_payload_free_integrity_gate: true
+  requires_no_runtime_execution: true
+  allow_artifact_path_contract_recording: true
+  allow_schema_contract_recording: true
+  allow_permission_contract_recording: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_file_count_scan: false
+  allow_checksum_calculation: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - record artifact path/schema/permission/integrity contracts
+  - record expected donor-level artifact format and layout
+  - record no-large-artifact-commit controls
+  - record that real artifact checks are deferred to explicit later gates
+  prohibited_actions:
+  - access real artifact files on disk
+  - commit real embedding artifacts
+  - scan real artifact file counts
+  - calculate checksums over real artifacts
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - materialize evaluation arrays
+  - create label arrays from real data
+  - execute real split assignment
+  - aggregate real embeddings
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+
+stage6_f002_completed_project_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F003
+  modeling_readiness: stage6_f002_complete_pending_donor_level_input_materialization_gate
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F003 - Donor-level input materialization gate
+
+stage6_donor_level_input_materialization_gate:
+  status: in_progress
+  branch: feat/stage6-donor-level-input-materialization-gate
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F003
+  feature_name: Donor-level input materialization gate
+  stage6_status: in_progress
+  gate_status: in_progress
+  gate_decision: materialization_contract_gate_opened
+  previous_feature: STAGE6-F002
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  required_upstream_gates:
+  - STAGE6-F001
+  - STAGE6-F002
+  upstream_authorization_decision: stage6_controlled_execution_path_authorized
+  upstream_artifact_gate_status: stage6_f002_real_artifact_access_integrity_gate_completed
+  scope: donor_level_materialization_contract_only_no_arrays
+  expected_artifact_format: npy_directory
+  expected_artifact_layout: one_file_per_donor_embedding
+  expected_record_level: donor
+  expected_split_level: donor
+  materialization_target: future_fold_scoped_donor_level_X_y_arrays
+  preprocessing_scope: fold_local_only
+  required_materialization_contracts:
+  - donor_index_contract
+  - artifact_to_donor_alignment_contract
+  - label_mapping_contract
+  - split_alignment_contract
+  - feature_matrix_contract
+  - fold_local_preprocessing_contract
+  - leakage_control_contract
+  - no_payload_materialization_contract
+  deferred_materialization_actions:
+  - load_npy_payloads
+  - parse_embedding_vectors
+  - construct_feature_matrix
+  - construct_label_array
+  - execute_split_assignment
+  - fit_fold_preprocessors
+  - persist_materialized_arrays
+  next_feature: STAGE6-F004
+  next_feature_name: Split and leakage-control gate
+  first_runtime_execution_feature: STAGE6-F005
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  artifact_loading_policy: prohibited_until_explicit_stage6_gate
+  vector_parsing_policy: prohibited_until_explicit_stage6_gate
+  input_materialization_policy: prohibited_until_explicit_stage6_gate
+  label_creation_policy: prohibited_until_explicit_stage6_gate
+  split_execution_policy: prohibited_until_explicit_stage6_gate
+  aggregation_execution_policy: prohibited_until_explicit_stage6_gate
+  preprocessing_execution_policy: prohibited_until_explicit_stage6_gate
+  modeling_execution_policy: prohibited_until_explicit_stage6_gate
+  prediction_generation_policy: prohibited_until_explicit_stage6_gate
+  metric_computation_policy: prohibited_until_explicit_stage6_gate
+  external_validation_policy: prohibited_until_explicit_stage6_gate
+  performance_claim_policy: prohibited_until_explicit_stage6_gate
+  requires_completed_stage6_f001: true
+  requires_completed_stage6_f002: true
+  requires_donor_index_contract: true
+  requires_artifact_to_donor_alignment_contract: true
+  requires_label_mapping_contract: true
+  requires_split_alignment_contract: true
+  requires_fold_local_preprocessing_contract: true
+  requires_leakage_control_contract: true
+  requires_donor_level_only: true
+  forbids_cell_level_split: true
+  requires_no_payload_materialization: true
+  requires_no_runtime_execution: true
+  allow_materialization_contract_recording: true
+  allow_label_mapping_contract_recording: true
+  allow_feature_matrix_contract_recording: true
+  allow_fold_scope_contract_recording: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_feature_matrix_construction: false
+  allow_label_vector_construction: false
+  allow_materialized_array_persistence: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_anndata_loading: false
+  allow_geneformer_execution: false
+  allow_tokenizer_execution: false
+  allow_embedding_extraction: false
+  allow_feature_extraction: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_preprocessing_fit: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - record donor-index materialization contract
+  - record artifact-to-donor alignment contract
+  - record label-mapping contract
+  - record split-alignment contract
+  - record future feature-matrix contract
+  - record fold-local preprocessing contract
+  - record leakage-control contract
+  prohibited_actions:
+  - access real artifact files on disk
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - construct feature matrices
+  - construct label arrays from real data
+  - persist materialized arrays
+  - execute real split assignment
+  - aggregate real embeddings
+  - fit fold preprocessors
+  - load AnnData files
+  - execute Geneformer
+  - execute tokenizer
+  - extract embeddings
+  - extract baseline features
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+
+stage6_f003_active_project_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F003
+  modeling_readiness: stage6_f003_donor_level_input_materialization_gate_in_progress
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F004 - Split and leakage-control gate
+
+
+stage6_donor_level_input_materialization_closeout:
+  status: completed
+  closeout_feature: STAGE6-F003-CLOSEOUT
+  closeout_status: completed
+  closeout_branch: feat/stage6-f004-split-leakage-control-gate
+  closeout_scope: compacted_closeout_only_no_runtime_execution
+  previous_feature: STAGE6-F003
+  previous_feature_status: completed
+  next_feature: STAGE6-F004
+  next_feature_name: Split and leakage-control gate
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_feature_matrix_construction: false
+  allow_label_vector_construction: false
+  allow_materialized_array_persistence: false
+  allow_split_execution: false
+  allow_real_aggregation_execution: false
+  allow_preprocessing_fit: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+
+
+stage6_split_leakage_control_gate:
+  status: completed
+  branch: feat/stage6-f004-split-leakage-control-gate
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F004
+  feature_name: Split and leakage-control gate
+  stage6_status: completed
+  gate_status: completed
+  gate_decision: split_leakage_control_gate_completed
+  previous_feature: STAGE6-F003
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  required_upstream_gates:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  upstream_authorization_decision: stage6_controlled_execution_path_authorized
+  upstream_materialization_gate_status: stage6_f003_donor_level_input_materialization_gate_completed
+  scope: split_leakage_contract_only_no_execution
+  split_target: future_donor_level_split_manifest
+  expected_record_level: donor
+  expected_split_level: donor
+  preprocessing_scope: fold_local_only
+  required_split_contracts:
+  - donor_level_split_contract
+  - unique_donor_assignment_contract
+  - label_stratification_contract
+  - fold_local_preprocessing_contract
+  - no_cell_level_split_contract
+  - no_global_preprocessing_contract
+  - no_prediction_metric_columns_contract
+  - leakage_review_contract
+  deferred_split_actions:
+  - execute_real_split_assignment
+  - materialize_fold_indices
+  - fit_fold_preprocessors
+  - construct_train_test_arrays
+  - fit_models
+  - generate_predictions
+  - compute_metrics
+  next_feature: STAGE6-F005
+  next_feature_name: Controlled baseline execution
+  first_runtime_execution_feature: STAGE6-F005
+  closeout_feature: STAGE6-F004-CLOSEOUT
+  closeout_status: completed
+  closeout_branch: feat/stage6-f004-split-leakage-control-gate
+  closeout_scope: feature_and_closeout_combined_no_runtime_execution
+  split_policy: donor_level_only
+  leakage_policy: cell_level_split_forbidden
+  artifact_loading_policy: prohibited_until_explicit_stage6_gate
+  vector_parsing_policy: prohibited_until_explicit_stage6_gate
+  input_materialization_policy: prohibited_until_explicit_stage6_gate
+  label_creation_policy: prohibited_until_explicit_stage6_gate
+  split_execution_policy: prohibited_until_explicit_stage6_gate
+  preprocessing_execution_policy: prohibited_until_explicit_stage6_gate
+  modeling_execution_policy: prohibited_until_explicit_stage6_gate
+  prediction_generation_policy: prohibited_until_explicit_stage6_gate
+  metric_computation_policy: prohibited_until_explicit_stage6_gate
+  external_validation_policy: prohibited_until_explicit_stage6_gate
+  performance_claim_policy: prohibited_until_explicit_stage6_gate
+  requires_completed_stage6_f001: true
+  requires_completed_stage6_f002: true
+  requires_completed_stage6_f003: true
+  requires_donor_level_split_contract: true
+  requires_unique_donor_assignment: true
+  requires_label_stratification_contract: true
+  requires_fold_local_preprocessing_contract: true
+  requires_no_cell_level_split: true
+  requires_no_global_preprocessing: true
+  requires_no_prediction_or_metric_columns: true
+  requires_leakage_review: true
+  requires_no_runtime_execution: true
+  allow_split_contract_recording: true
+  allow_leakage_contract_recording: true
+  allow_fold_scope_contract_recording: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing: false
+  allow_input_materialization: false
+  allow_label_array_creation: false
+  allow_feature_matrix_construction: false
+  allow_label_vector_construction: false
+  allow_split_execution: false
+  allow_train_test_split_execution: false
+  allow_fold_index_materialization: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_preprocessing_fit: false
+  allow_model_fitting: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_modeling: false
+  modeling_authorization_granted: false
+  modeling_allowed: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - record donor-level split contract
+  - record unique donor assignment contract
+  - record label stratification contract
+  - record fold-local preprocessing contract
+  - record leakage-control contract
+  prohibited_actions:
+  - execute real split assignment
+  - materialize fold indices
+  - load .npy embedding payloads
+  - parse embedding vectors
+  - construct train/test arrays
+  - create label arrays from real data
+  - perform global preprocessing
+  - fit fold preprocessors
+  - fit scalers
+  - fit models
+  - generate predictions
+  - compute metrics
+  - train models
+  - perform external validation
+  - add performance claims
+
+stage6_f005_active_project_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F005
+  modeling_readiness: stage6_f004_complete_pending_controlled_baseline_execution
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F005 - Controlled baseline execution
+
+
+stage6_controlled_baseline_execution:
+  status: completed
+  branch: feat/stage6-f005-controlled-baseline-execution
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F005
+  feature_name: Controlled baseline execution
+  gate_status: completed
+  gate_decision: controlled_baseline_execution_completed
+  previous_feature: STAGE6-F004
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  required_upstream_gates:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  scope: in_memory_donor_level_baseline_fit_only_no_predictions_metrics
+  baseline_family: nearest_centroid_baseline
+  expected_record_level: donor
+  expected_split_level: donor
+  preprocessing_scope: fold_local_only
+  required_execution_contracts:
+  - donor_level_input_records
+  - unique_donor_ids
+  - train_only_fit
+  - holdout_prediction_deferred
+  - metric_computation_deferred
+  - no_cell_level_split
+  - no_global_preprocessing
+  - no_model_artifact_persistence
+  - no_performance_claims
+  deferred_f006_actions:
+  - generate_holdout_predictions
+  - compute_holdout_metrics
+  - write_prediction_manifest
+  - write_metric_tables
+  - calibrate_prediction_scores
+  - report_uncertainty_intervals
+  next_feature: STAGE6-F006
+  next_feature_name: Prediction and metric computation
+  closeout_feature: STAGE6-F005-CLOSEOUT
+  closeout_status: completed
+  closeout_scope: feature_and_closeout_combined_controlled_fit_only
+  require_completed_stage6_f001: true
+  require_completed_stage6_f002: true
+  require_completed_stage6_f003: true
+  require_completed_stage6_f004: true
+  require_donor_level_records: true
+  require_unique_donor_ids: true
+  require_train_only_fit: true
+  require_holdout_predictions_deferred: true
+  require_metric_computation_deferred: true
+  require_no_cell_level_split: true
+  require_no_global_preprocessing: true
+  require_no_model_artifact_persistence: true
+  allow_in_memory_donor_records: true
+  allow_controlled_baseline_fitting: true
+  allow_model_fitting: true
+  modeling_authorization_granted: true
+  modeling_allowed: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing_from_disk: false
+  allow_input_file_materialization: false
+  allow_label_file_materialization: false
+  allow_split_execution_from_file: false
+  allow_global_preprocessing: false
+  allow_scaler_outside_fold: false
+  allow_model_artifact_persistence: false
+  allow_prediction_generation: false
+  allow_metric_computation: false
+  allow_training_beyond_controlled_baseline_fit: false
+  training_allowed: false
+  external_validation_allowed: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - validate caller-supplied in-memory donor-level records
+  - fit dependency-free nearest-centroid baseline on train donors only
+  - return fitted centroids in memory
+  - defer prediction generation to STAGE6-F006
+  - defer metric computation to STAGE6-F006
+  prohibited_actions:
+  - access real artifact files on disk
+  - load .npy embedding payloads
+  - parse embedding vectors from disk
+  - materialize input arrays from files
+  - materialize label arrays from files
+  - execute split assignment from files
+  - perform global preprocessing
+  - fit scalers outside training folds
+  - persist model artifacts
+  - generate predictions
+  - compute metrics
+  - train beyond controlled baseline fitting
+  - perform external validation
+  - add performance claims
+
+stage6_f006_active_project_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F006
+  modeling_readiness: stage6_f005_complete_pending_prediction_metric_computation
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-F006 - Prediction and metric computation
+
+
+stage6_prediction_metric_computation:
+  status: completed
+  branch: feat/stage6-f006-prediction-metric-computation
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F006
+  feature_name: Prediction and metric computation
+  gate_status: completed
+  gate_decision: prediction_metric_computation_completed
+  previous_feature: STAGE6-F005
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  - STAGE6-F005
+  required_upstream_gates:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  - STAGE6-F005
+  scope: in_memory_donor_level_prediction_metric_only_no_artifacts_claims
+  baseline_family: nearest_centroid_baseline
+  expected_record_level: donor
+  preprocessing_scope: fold_local_only
+  required_f006_contracts:
+  - f005_fitted_baseline_required
+  - in_memory_donor_records_only
+  - predict_non_train_records_only
+  - metric_computation_on_in_memory_predictions_only
+  - no_file_or_artifact_outputs
+  - no_refit_or_training
+  - no_external_validation
+  - no_performance_claims
+  deferred_f007_actions:
+  - write_final_result_report
+  - summarize_stage6_controls
+  - document_metric_scope
+  - close_stage6
+  metric_names:
+  - accuracy
+  - balanced_accuracy
+  - sensitivity
+  - specificity
+  - precision
+  - f1
+  - brier_score
+  next_feature: STAGE6-F007
+  next_feature_name: Stage 6 final result report and closeout
+  closeout_feature: STAGE6-F006-CLOSEOUT
+  closeout_status: completed
+  closeout_scope: feature_and_closeout_combined_prediction_metric_only
+  require_completed_stage6_f001: true
+  require_completed_stage6_f002: true
+  require_completed_stage6_f003: true
+  require_completed_stage6_f004: true
+  require_completed_stage6_f005: true
+  require_f005_fitted_baseline: true
+  require_in_memory_records_only: true
+  require_non_train_predictions_only: true
+  require_metric_scope_limited_to_in_memory_predictions: true
+  require_no_file_or_artifact_outputs: true
+  require_no_refit_or_training: true
+  require_no_external_validation: true
+  require_no_performance_claims: true
+  allow_in_memory_prediction_generation: true
+  allow_in_memory_metric_computation: true
+  allow_prediction_generation: true
+  allow_metric_computation: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing_from_disk: false
+  allow_split_execution_from_file: false
+  allow_model_refit: false
+  allow_training: false
+  training_allowed: false
+  allow_model_artifact_persistence: false
+  allow_prediction_manifest_write: false
+  allow_metric_table_write: false
+  external_validation_allowed: false
+  allow_external_validation: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  allowed_actions:
+  - generate in-memory donor-level predictions from F005 fitted baseline
+  - compute in-memory binary metrics from donor-level predictions
+  - return prediction records in memory
+  - return metric summary in memory
+  prohibited_actions:
+  - access real artifact files on disk
+  - load .npy embedding payloads
+  - parse embedding vectors from disk
+  - execute split assignment from files
+  - refit or train models
+  - persist model artifacts
+  - write prediction manifest
+  - write metric table
+  - perform external validation
+  - add performance claims
+
+stage6_f007_active_project_snapshot_for_legacy_tests:
+  status: stage6_in_progress
+  current_phase: Stage 6
+  current_phase_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F007
+  modeling_readiness: stage6_f006_complete_pending_final_result_report_closeout
+  purpose: retained_historical_snapshot_only
+  superseded_by: STAGE6-COMPLETE
+
+
+stage6_final_result_report_closeout:
+  status: completed
+  branch: chore/stage6-final-result-report-closeout
+  current_stage: Stage 6
+  stage_name: Stage 6 - Controlled donor-level modeling execution
+  current_feature: STAGE6-F007
+  feature_name: Stage 6 final result report and closeout
+  closeout_feature: STAGE6-F007-CLOSEOUT
+  closeout_status: completed
+  closeout_decision: stage6_final_result_report_closeout_completed
+  previous_feature: STAGE6-F006
+  previous_feature_status: completed
+  completed_stage6_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  - STAGE6-F005
+  - STAGE6-F006
+  - STAGE6-F007
+  required_prior_features:
+  - STAGE6-F001
+  - STAGE6-F002
+  - STAGE6-F003
+  - STAGE6-F004
+  - STAGE6-F005
+  - STAGE6-F006
+  required_closeout_sections:
+  - authorization_summary
+  - artifact_access_integrity_summary
+  - input_materialization_summary
+  - split_leakage_control_summary
+  - controlled_baseline_execution_summary
+  - prediction_metric_scope_summary
+  - safety_limitations_summary
+  - next_research_handoff_summary
+  required_final_limitations:
+  - no_real_cohort_performance_claim
+  - no_external_validation_performed
+  - no_prediction_or_metric_artifact_written
+  - no_npy_payload_loaded
+  - no_embedding_vector_parsed_from_disk
+  - no_model_artifact_persisted
+  - in_memory_execution_scope_only
+  final_stage_status: completed
+  final_current_feature: STAGE6-COMPLETE
+  scope: stage6_final_report_closeout_no_real_performance_claims
+  record_level: donor
+  execution_scope: in_memory_only
+  stage7_policy: no_stage7_required
+  prediction_metric_scope: in_memory_donor_level_predictions_only
+  report_artifact_policy: no_report_artifact_written
+  performance_claim_policy: no_real_cohort_performance_claim
+  external_validation_policy: not_performed
+  allow_final_report_metadata: true
+  allow_stage6_closeout: true
+  allow_next_research_handoff_summary: true
+  require_all_stage6_features_completed: true
+  require_metric_scope_documented: true
+  require_limitations_documented: true
+  require_no_stage7: true
+  allow_filesystem_artifact_access: false
+  allow_real_artifact_loading: false
+  allow_npy_payload_loading: false
+  allow_embedding_vector_parsing_from_disk: false
+  allow_split_execution_from_file: false
+  allow_model_refit: false
+  allow_training: false
+  training_allowed: false
+  allow_model_artifact_persistence: false
+  allow_prediction_manifest_write: false
+  allow_metric_table_write: false
+  allow_report_artifact_write: false
+  external_validation_allowed: false
+  allow_external_validation: false
+  performance_claims_allowed: false
+  performance_claims_added: false
+  final_summary:
+  - Stage 6 authorized the controlled donor-level execution path.
+  - Stage 6 retained donor-level-only and no-cell-level-split controls.
+  - Stage 6 added controlled in-memory baseline fitting.
+  - Stage 6 added controlled in-memory prediction and metric computation.
+  - Stage 6 did not write real prediction or metric artifacts.
+  - Stage 6 did not perform external validation.
+  - Stage 6 did not add real-cohort performance claims.
+  - No Stage 7 is required.
+  prohibited_actions:
+  - access real artifact files on disk
+  - load .npy embedding payloads
+  - parse embedding vectors from disk
+  - execute split assignment from files
+  - refit or train models
+  - persist model artifacts
+  - write prediction manifest
+  - write metric table
+  - write report artifact
+  - perform external validation
+  - add real-cohort performance claims

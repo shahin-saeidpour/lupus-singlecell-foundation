@@ -1,0 +1,16 @@
+stage: 8I
+name: final manuscript-readiness closeout
+status: stage8_closed_with_unresolved_direct_baseline_and_external_scoring_blockers
+q2_internal_methods_readiness: conditional_limited_readiness
+q1_strong_claim_readiness: not_ready
+direct_baseline: missing
+canonical_matched_rerun: not_run
+external_scoring: not_run
+new_metrics: not_created
+issue_57: remain_open
+stage8_complete: true
+next_required_work: return_to_stage8g_input_placement_or_construction
+notes:
+  - Stage 8 is closed as an internal manuscript-hardening stage.
+  - Strong final manuscript claims remain blocked.
+  - The next scientific blocker is the missing direct donor-level baseline input package.

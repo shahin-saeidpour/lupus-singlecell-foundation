@@ -2852,3 +2852,32 @@ external_validation_protocol:
     - step3_cohort_assignment
     - step4_harmonization_and_labels
     - step5_metrics_and_evaluation_plan
+
+  step2_dataset_audit:
+    status: complete
+    created: "2026-07-04"
+    file: docs/eval/dataset_audit.md
+    phase: pre-acquisition
+    data_touched: false
+    datasets_downloaded: false
+    code_executed: false
+    cohort_selected: false
+    description: >
+      Inventory of 6 candidate scRNA-seq lupus/PBMC cohorts with accession
+      verification, sample counts, label availability, access tier, and
+      usability flags. Two cohorts (GSE174188, GSE135779) flagged as usable
+      for diagnosis; activity usability is questionable pending SLEDAI
+      verification. No data was downloaded, no cohort was selected, and no
+      development/external designation was made. This is a neutral inventory
+      feeding into Step 3 (Cohort Assignment).
+    cohorts_audited:
+    - GSE174188_Perez_2022
+    - GSE135779_Nehar_Belaid_2020
+    - GSE193867_Spencer_2022
+    - GSE162577
+    - GSE142016
+    - SDY997_Arazi_2019_AMP_kidney
+    remaining_steps:
+    - step3_cohort_assignment
+    - step4_harmonization_and_labels
+    - step5_metrics_and_evaluation_plan

@@ -2961,3 +2961,15 @@ external_validation_protocol:
     external_quarantined: true
     remaining_steps:
     - step6_development_acquisition
+
+  step6_acquisition:
+    status: blocked
+    created: "2026-07-04"
+    phase: acquisition
+    dev_acquired: false
+    external_acquired: false
+    ancestry_axis_status: unknown
+    taskB_labels: unknown
+    blocker_reason: "Insufficient disk space: dataset requires 10.51GB (11,288,275,886 bytes), only 10.45GB available on C: drive."
+    remaining_steps:
+    - resolve_disk_space_blocker

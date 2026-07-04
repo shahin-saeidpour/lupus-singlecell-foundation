@@ -1,5 +1,0 @@
-readiness_target,status,reason,next_requirement
-Q2_internal_methods,conditional_limited_readiness,Internal hardening artifacts exist but direct baseline is missing,Use cautious limitation language and avoid final comparative claims.
-Q1_strong_method_claim,not_ready,Canonical matched rerun and external scoring are missing,Complete Stage 8G inputs Stage 8H rerun and external scoring.
-Clinical_translation_claim,not_ready,External validation and clinical deployment evidence are missing,Run independent validation and clinical review before any such claim.
-Foundation_model_superiority_claim,not_ready,Direct baseline comparison was not executed,Complete matched baseline comparison first.

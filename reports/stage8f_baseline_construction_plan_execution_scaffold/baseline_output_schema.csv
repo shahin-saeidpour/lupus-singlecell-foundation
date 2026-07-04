@@ -1,8 +1,0 @@
-file_name,required,record_level,required_columns,notes
-baseline_oof_predictions.csv,true,donor_split,"baseline_id; donor_id; true_label; predicted_label; probability_managed; probability_flare; split_id; fold_id; seed","Row-level out-of-fold predictions. Required before any metric comparison."
-baseline_metrics_by_split.csv,true,split,"baseline_id; split_id; seed; metric_name; metric_value; n_donors; n_managed; n_flare","Metric values may be written only by a later execution stage using real predictions."
-baseline_summary_metrics.csv,true,baseline,"baseline_id; metric_name; summary_value; ci_low; ci_high; aggregation_policy","Summary metrics may be written only after matched execution."
-fold_level_stability.csv,true,fold,"baseline_id; split_id; fold_id; seed; n_train; n_test; n_train_managed; n_train_flare; n_test_managed; n_test_flare; status","Documents fold-level class support and stability."
-confidence_intervals.csv,true,metric,"baseline_id; metric_name; method; ci_low; ci_high; n_bootstrap; status","Confidence intervals are not allowed until prediction rows exist."
-baseline_artifact_manifest.csv,true,artifact,"artifact_path; artifact_role; sha256; bytes; created_at_utc; source_stage","Must include all input and output artifacts used in Stage 8H."
-execution_decision.csv,true,decision,"field; value","Records whether execution was run, blocked, or stopped by a fail-closed rule."

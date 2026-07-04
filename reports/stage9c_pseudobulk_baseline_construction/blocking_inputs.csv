@@ -1,8 +1,0 @@
-input_id,input_name,required,status,source_stage,next_action
-S9C_IN_001,local_source_registry,true,missing,9A,Create and fill artifacts/stage9a/local_source_registry.csv.
-S9C_IN_002,source_expression_artifact_or_pseudobulk,true,missing,9A,Place source artifact or direct pseudobulk input.
-S9C_IN_003,labels.csv,true,missing,9B,Place labels under artifacts/stage8g/baseline_inputs.
-S9C_IN_004,fold_assignments.csv,true,missing,9B,Place fold assignments under artifacts/stage8g/baseline_inputs.
-S9C_IN_005,donor_inventory.csv,true,missing,9B,Place donor inventory under artifacts/stage8g/baseline_inputs.
-S9C_IN_006,file_hashes.csv,true,missing,9B,Generate input hashes after placement.
-S9C_IN_007,environment.json,true,missing,9B,Generate environment manifest after placement.

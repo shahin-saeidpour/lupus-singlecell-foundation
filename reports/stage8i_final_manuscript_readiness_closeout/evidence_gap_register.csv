@@ -1,7 +1,0 @@
-gap_id,evidence_gap,status,required_resolution
-S8I_GAP_001,direct donor-level pseudobulk baseline,open,Construct or place Stage 8G baseline input package.
-S8I_GAP_002,canonical matched rerun,open,Run Stage 8H after Stage 8G audit passes.
-S8I_GAP_003,baseline row-level predictions,open,Generate only during valid Stage 8H execution.
-S8I_GAP_004,matched confidence intervals,open,Compute only from valid matched prediction outputs.
-S8I_GAP_005,external or frozen-artifact scoring,open,Resolve Issue 57 with actual scoring artifacts.
-S8I_GAP_006,large source input archive provenance,open,Register source archive and hashes without committing prohibited large payloads.

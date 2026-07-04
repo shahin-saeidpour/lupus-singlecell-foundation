@@ -1,9 +1,0 @@
-field,value
-stage,9A
-status,artifact_intake_protocol_defined_awaiting_local_files
-baseline_construction,not_run
-numeric_execution,not_run
-predictions,not_created
-metrics,not_created
-stage9b_ready,false
-next_stage,9B_after_local_file_placement

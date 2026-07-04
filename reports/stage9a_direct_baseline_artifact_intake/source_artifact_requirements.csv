@@ -1,9 +1,0 @@
-requirement_id,artifact,required,accepted_format,minimum_fields,notes
-S9A_REQ_001,source expression artifact,true,h5ad or matrix plus metadata,"donor_id; gene expression values",Required if pseudobulk matrix is not already available.
-S9A_REQ_002,pseudobulk_matrix.csv.gz,true,csv.gz,"donor_id; numeric gene columns",Can be provided directly or constructed in Stage 9C.
-S9A_REQ_003,labels.csv,true,csv,"donor_id; label; label_source",Must use approved managed versus FLARE target.
-S9A_REQ_004,fold_assignments.csv,true,csv,"donor_id; split_id; fold_id; seed; role",Must match primary evaluation split policy.
-S9A_REQ_005,donor_inventory.csv,true,csv,"donor_id; label; source_package; inclusion_status",Must document included and excluded donors.
-S9A_REQ_006,preprocessing_config.yaml,true,yaml,"baseline_id; pca_policy; logistic_regression_policy",Must specify fold-local processing.
-S9A_REQ_007,file_hashes.csv,true,csv,"path; sha256; bytes; generated_at_utc",Must hash all local input artifacts or registry entries.
-S9A_REQ_008,environment.json,true,json,"python_version; package_versions; platform",Must capture construction environment.

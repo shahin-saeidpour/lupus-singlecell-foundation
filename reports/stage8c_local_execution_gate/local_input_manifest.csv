@@ -1,7 +1,0 @@
-input_group,expected_local_path,status,required_for,decision
-model_input_archive,artifacts/stage8c/model_inputs/,missing,primary execution,block
-sample_target_table,artifacts/stage8c/targets/sample_targets.csv,missing,primary execution,block
-baseline_input_table,artifacts/stage8c/baseline_inputs/,missing,baseline execution,block
-seed_list,artifacts/stage8c/config/canonical_seeds.txt,missing,reproducible splitting,block
-file_hash_manifest,artifacts/stage8c/manifests/file_hashes.csv,missing,audit,block
-environment_manifest,artifacts/stage8c/manifests/environment.json,missing,audit,block

@@ -1,6 +1,0 @@
-claim_id,claim_text,status,condition
-S8I_ALLOW_001,The project has completed internal validation hardening through Stage 8,allowed,Must state unresolved baseline and external-scoring blockers.
-S8I_ALLOW_002,Primary internal result artifacts are available from earlier packages,allowed,Must not add new numbers or infer missing values.
-S8I_ALLOW_003,Direct baseline requirements are now specified,allowed,Must state the real direct baseline package is missing.
-S8I_ALLOW_004,Canonical matched rerun requirements are defined,allowed,Must state the rerun was not executed.
-S8I_ALLOW_005,Manuscript readiness is blocked pending direct baseline and external scoring,allowed,This is the final Stage 8 closeout position.

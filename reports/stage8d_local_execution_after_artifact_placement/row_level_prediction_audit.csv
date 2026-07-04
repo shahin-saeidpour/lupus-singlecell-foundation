@@ -1,3 +1,0 @@
-source,file_name,n_rows,n_unique_donors,n_splits,n_negative_donors,n_positive_donors,status
-lupus_primary_eval,primary_out_of_fold_predictions_by_split.csv,4860,162,50,148,14,detected
-lupus_internal_robustness_ultrafast,02_ablation_oof_predictions.csv,2916,162,15,148,14,detected

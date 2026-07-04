@@ -2881,3 +2881,32 @@ external_validation_protocol:
     - step3_cohort_assignment
     - step4_harmonization_and_labels
     - step5_metrics_and_evaluation_plan
+
+  step3_cohort_assignment:
+    status: complete
+    created: "2026-07-04"
+    file: docs/eval/external_validation_protocol.md
+    audit_file: docs/eval/dataset_audit.md
+    phase: pre-acquisition
+    data_touched: false
+    code_executed: false
+    branch_taken: B
+    branch_reason: >
+      SLECA atlas Zenodo files are restricted (not openly downloadable).
+      No other large open PBMC scRNA-seq lupus cohort identified beyond
+      GSE174188 and GSE135779. Branch B (fallback) applies.
+    sleca_open_access: false
+    sleca_zenodo_status: "restricted — files require access request"
+    sleca_preprint: true
+    development_cohort: GSE174188_Perez_2022
+    external_cohort: GSE135779_Nehar_Belaid_2020
+    task_a_external_validation: feasible
+    task_b_external_validation: not_confirmed_feasible
+    task_b_status: secondary_exploratory_internal_only
+    audit_corrections:
+    - GSE162577_resolved_2SLE_1HC
+    - GSE142016_resolved_3SLE_0HC_PBMC_only
+    - SLECA_row_added_restricted_access
+    remaining_steps:
+    - step4_harmonization_and_labels
+    - step5_metrics_and_evaluation_plan

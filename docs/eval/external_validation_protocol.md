@@ -92,7 +92,101 @@ following rule applies:
 
 ## 2. Cohort Assignment (development vs. external)
 
-TBD (Step 3)
+### Branch Decision
+
+**Branch B (fallback) is taken.** The deciding facts are:
+
+1. **SLECA atlas data is NOT openly downloadable.** The Zenodo record
+   (10.5281/zenodo.17698085) explicitly states: "The record is publicly
+   accessible, but files are restricted." The h5ad files require an access
+   request/approval and are not freely downloadable. This disqualifies
+   Branch A, which requires open access to the SLECA integrated matrix.
+2. **SLECA is a preprint** (bioRxiv, Feb 2026, not peer-reviewed), adding
+   methodological uncertainty to any integration-derived annotations.
+3. **No other large open PBMC scRNA-seq lupus cohort was identified** beyond
+   GSE174188 (Perez) and GSE135779 (Nehar-Belaid). All other candidates
+   (GSE162577, GSE142016, GSE193867) are too small (≤3 usable samples).
+
+Branch A may be revisited if SLECA files become openly downloadable or if an
+alternative large cohort is identified. This does not change the current
+assignment.
+
+---
+
+### Assignment Table
+
+| Cohort | Role | Task(s) supported | Documented shift axis vs. development | Assay + chemistry | n SLE | n HC | n inactive-SLE | Access tier | Justification |
+|---|---|---|---|---|---|---|---|---|---|
+| **GSE174188** — Perez et al. 2022, CLUES/ImmVar | **Development** | Task A (diagnosis, primary); Task B (activity, secondary/exploratory — internal only) | N/A (reference) | 10x Chromium 3' v2, mux-seq | 162 | ~99 | ~133 managed (SLEDAI ≤ 4 expected for many; exact count UNKNOWN — verify at acquisition) | Open (CELLxGENE h5ad); SLEDAI under dbGaP phs002812 | Largest available open lupus PBMC scRNA-seq cohort; multi-ancestry; contains both SLE and HC labels; flare/managed annotation openly available. |
+| **GSE135779** — Nehar-Belaid et al. 2020 | **External** | Task A (diagnosis, primary external validation) | **Pediatric** (vs. adult development); different institution/site (Pascual/Banchereau lab vs. UCSF); independent recruitment; different 10x 3' library prep (non-multiplexed vs. mux-seq) | 10x Chromium 3', standard (non-mux) | 41 (33 pSLE + 8 aSLE) | 17 (11 pHC + 6 aHC) | UNKNOWN — verify SLEDAI distribution from paper supplementary; may be thin in pediatric cohort | Open (GEO processed counts); FASTQ controlled (dbGaP phs002048) | Only available independent SLE PBMC scRNA-seq cohort with adequate sample size. Pediatric-to-adult shift is a strong external-validation axis. |
+
+#### Internal-External Validation Within Perez (GSE174188)
+
+Because only one true external cohort (GSE135779) is available and it is
+predominantly pediatric, **internal-external sub-splits within GSE174188** are
+defined to provide additional supported-generalization evidence:
+
+| Sub-split name | Held-out partition | Shift axis | Purpose |
+|---|---|---|---|
+| CLUES vs. ImmVar leave-one-source-out | Hold out ImmVar samples; train on CLUES (or vice versa) | Source cohort / recruitment site | Tests generalization across recruitment sites within the same study |
+| Ancestry-stratified hold-out | Hold out one ancestry group (e.g., East Asian); train on remaining | Ancestry / genetic background | Tests robustness to population structure |
+
+These internal-external sub-analyses are **supplementary** to the primary
+GSE135779 external validation and do not replace it.
+
+---
+
+### Task B — Disease Activity: Feasibility Assessment (Secondary/Exploratory)
+
+Task B (active vs. inactive SLE) is designated **secondary/exploratory** for
+external validation. The feasibility assessment is as follows:
+
+**Within GSE174188 (development, internal evaluation):**
+- The open CELLxGENE/GEO metadata provides **flare vs. managed** annotations
+  (derived from donor_id patterns: `FLARE*` → flare, numeric IDs → managed SLE).
+- This provides a **proxy** for active/inactive, but the mapping to SLEDAI-2K > 4
+  threshold is not directly available without dbGaP access.
+- **Internal cross-validation** on flare vs. managed SLE is feasible using openly
+  available labels. This is an exploratory analysis, not a validated external claim.
+
+**Within GSE135779 (external):**
+- SLEDAI scores are recorded for pediatric SLE patients, but the **inactive-SLE
+  subset (SLEDAI ≤ 4) size is UNKNOWN** and may be thin given that pediatric SLE
+  cohorts typically present with higher disease activity.
+- Task B external validation on GSE135779 is **not confirmed feasible** until the
+  SLEDAI distribution is verified from the paper's supplementary tables at
+  acquisition time.
+
+**Conclusion:** Task B external validation is **not guaranteed on open data**.
+It will be reported as internal/exploratory (within-Perez flare vs. managed) unless
+the GSE135779 SLEDAI distribution confirms a non-trivial inactive subset. This
+assessment is honest; we do not overclaim external validation capability for Task B.
+
+---
+
+### Leakage & Overlap Controls
+
+1. **Patient-level disjointness across development / external:**
+   GSE174188 (Perez, UCSF CLUES/ImmVar) and GSE135779 (Nehar-Belaid,
+   Baylor/Jackson Lab) are independent studies with no shared recruitment sites,
+   no shared patient populations, and no shared donor IDs. Patient-level
+   disjointness is guaranteed by study independence.
+
+2. **No SLECA overlap risk:** SLECA is not used in this protocol. However, for the
+   record: SLECA integrates both GSE174188 (Data-6) and GSE135779 (Data-1). Had
+   SLECA been used, strict source-study-level provenance mapping per sample would
+   have been required to prevent any source study from straddling the
+   development/external boundary. This is documented but not activated.
+
+3. **Internal-external sub-split disjointness within Perez:**
+   CLUES vs. ImmVar splits are defined by the source cohort label in the metadata.
+   Ancestry-stratified splits are defined by self-reported ancestry. Both splits
+   guarantee that no donor appears in both the training and held-out partitions.
+
+4. **No cell-level leakage:** Per the cross-cutting rules in Section 1, all
+   predictions are per-patient. Cell-level data from a given patient never
+   appears in both training and evaluation sets.
+
 
 ## 3. Harmonization & Labels
 

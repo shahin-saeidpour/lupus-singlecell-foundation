@@ -3005,3 +3005,11 @@ external_validation_protocol:
     x_max: 10.0
     raw_min: 0.0
     raw_max: 671.0
+
+  step7_baseline:
+    model_type: "baseline_logreg"
+    counts_source: "raw_pseudobulk"
+    pseudobulk_shape: [261, 30933]
+    dev_only: true
+    external_touched: false
+    probabilistic: true

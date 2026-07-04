@@ -1,0 +1,28 @@
+{
+  "model_type": "baseline_logreg",
+  "pseudobulk_shape": [
+    261,
+    30933
+  ],
+  "gene_count": 30933,
+  "per_fold_counts": {
+    "Fold1_Test": {
+      "Asian": 107
+    },
+    "Fold2_Test": {
+      "European": 149
+    }
+  },
+  "artifacts": [
+    {
+      "path": "artifacts/preprocessing/gene_vocab.npy",
+      "bytes": 557204,
+      "sha256": "066ccf41ea6a335c86a102147c49278719998ffd3f13bf490100f193b71e3523"
+    },
+    {
+      "path": "artifacts/baseline_model/weights.pkl",
+      "bytes": 124747,
+      "sha256": "e70c4abad4b139f3d419999bca55bc15cac5ed95b63c3a1a4fbae3773609bf48"
+    }
+  ]
+}

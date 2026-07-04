@@ -2997,3 +2997,11 @@ external_validation_protocol:
     external_acquired: false
     remaining_steps:
     - step7_model_development
+
+  step7a_data_characterization:
+    counts_location: "raw"
+    x_is_normalized: true
+    x_min: -6.7782087326049805
+    x_max: 10.0
+    raw_min: 0.0
+    raw_max: 671.0
